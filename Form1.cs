@@ -1,45 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace tthk_contacts
 {
     public partial class Form1 : Form
     {
+        SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\AppData\contacts.mdf; Integrated Security = True");
+        private SqlCommand command;
+        private SqlDataAdapter adapter;
+
+        private int id = 0;
         public Form1()
         {
             InitializeComponent();
+            RequestGroups();
+            DisplayData();
         }
 
-        private void GetConnection()
+        private void DisplayData()
         {
-
+            connection.Open();
+            DataTable table = new DataTable();
+            adapter = SearchData();
+            adapter.Fill(table);
+            contactsDataGridView.DataSource = table;
+            connection.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private SqlDataAdapter SearchData()
         {
-
+            return new SqlDataAdapter("SELECT * FROM Contacts;", connection);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private SqlDataAdapter SearchDataByGroup(int groupId)
         {
-
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId;", connection);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@groupId", groupId);
+            return dataAdapter;
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private SqlDataAdapter SearchDataByName(string searchName)
         {
-
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name = @name;", connection);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@name", searchName);
+            return dataAdapter;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void RequestGroups()
         {
+            connection.Open();
+            command = new SqlCommand("SELECT Code FROM Groups;", connection);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    AddGroupToCombobox(reader, "Code");
+                }
+            }
 
+            connection.Close();
         }
+
+        private void AddGroupToCombobox(SqlDataReader source, string name)
+        {
+            groupComboBox.Items.Add(source[name].ToString());
+        }
+
     }
 }
