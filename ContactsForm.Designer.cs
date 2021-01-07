@@ -48,6 +48,13 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.contactsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contactsDataSet = new tthk_contacts.ContactsDataSet();
             this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,12 +64,7 @@
             this.addPictureLinkButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.contactComboBox = new System.Windows.Forms.ComboBox();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clearFieldsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -87,7 +89,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(250, 26);
-            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TabIndex = 3;
             this.nameTextBox.Tag = "";
             // 
             // label2
@@ -107,7 +109,7 @@
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(250, 26);
-            this.phoneTextBox.TabIndex = 1;
+            this.phoneTextBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -126,25 +128,25 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(250, 26);
-            this.emailTextBox.TabIndex = 1;
+            this.emailTextBox.TabIndex = 5;
             // 
             // groupComboBox
             // 
             this.groupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.groupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(948, 51);
+            this.groupComboBox.Location = new System.Drawing.Point(956, 52);
             this.groupComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(206, 28);
-            this.groupComboBox.TabIndex = 2;
+            this.groupComboBox.TabIndex = 14;
             this.groupComboBox.Text = "Kõik";
             this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(888, 55);
+            this.label4.Location = new System.Drawing.Point(896, 55);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
@@ -195,59 +197,59 @@
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(250, 26);
-            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.TabIndex = 0;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(136, 620);
+            this.addButton.Location = new System.Drawing.Point(142, 652);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(252, 46);
-            this.addButton.TabIndex = 4;
+            this.addButton.TabIndex = 9;
             this.addButton.Text = "Lisa";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(398, 620);
+            this.updateButton.Location = new System.Drawing.Point(404, 652);
             this.updateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(252, 46);
-            this.updateButton.TabIndex = 4;
+            this.updateButton.TabIndex = 10;
             this.updateButton.Text = "Muuda";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(658, 620);
+            this.deleteButton.Location = new System.Drawing.Point(664, 652);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(252, 46);
-            this.deleteButton.TabIndex = 4;
+            this.deleteButton.TabIndex = 11;
             this.deleteButton.Text = "Kustuta";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // previousButton
             // 
-            this.previousButton.Location = new System.Drawing.Point(920, 620);
+            this.previousButton.Location = new System.Drawing.Point(920, 652);
             this.previousButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.previousButton.Name = "previousButton";
             this.previousButton.Size = new System.Drawing.Size(117, 46);
-            this.previousButton.TabIndex = 4;
+            this.previousButton.TabIndex = 12;
             this.previousButton.Text = "<<";
             this.previousButton.UseVisualStyleBackColor = true;
             this.previousButton.Click += new System.EventHandler(this.previousButton_Click);
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(1046, 620);
+            this.nextButton.Location = new System.Drawing.Point(1045, 652);
             this.nextButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(117, 46);
-            this.nextButton.TabIndex = 4;
+            this.nextButton.TabIndex = 13;
             this.nextButton.Text = ">>";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
@@ -257,8 +259,8 @@
             this.searchButton.Location = new System.Drawing.Point(398, 45);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(98, 40);
-            this.searchButton.TabIndex = 4;
+            this.searchButton.Size = new System.Drawing.Size(98, 39);
+            this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Otsi";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -273,16 +275,75 @@
             this.phoneDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.pictureDataGridViewTextBoxColumn,
-            this.groupIdDataGridViewTextBoxColumn});
+            this.groupIdDataGridViewTextBoxColumn,
+            this.Scholarship});
             this.contactsDataGridView.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.contactsBindingSource, "Id", true));
             this.contactsDataGridView.DataSource = this.contactsBindingSource;
             this.contactsDataGridView.Location = new System.Drawing.Point(402, 123);
             this.contactsDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactsDataGridView.Name = "contactsDataGridView";
             this.contactsDataGridView.RowHeadersWidth = 62;
-            this.contactsDataGridView.Size = new System.Drawing.Size(760, 423);
-            this.contactsDataGridView.TabIndex = 5;
+            this.contactsDataGridView.Size = new System.Drawing.Size(760, 458);
+            this.contactsDataGridView.TabIndex = 15;
             this.contactsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ContactsDataGridView_RowHeaderMouseClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nimi";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Telefoninumber";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "E-post";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pictureDataGridViewTextBoxColumn
+            // 
+            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
+            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
+            this.pictureDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
+            this.pictureDataGridViewTextBoxColumn.Visible = false;
+            this.pictureDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // groupIdDataGridViewTextBoxColumn
+            // 
+            this.groupIdDataGridViewTextBoxColumn.DataPropertyName = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn.HeaderText = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.groupIdDataGridViewTextBoxColumn.Name = "groupIdDataGridViewTextBoxColumn";
+            this.groupIdDataGridViewTextBoxColumn.Visible = false;
+            this.groupIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // Scholarship
+            // 
+            this.Scholarship.DataPropertyName = "Scholarship";
+            this.Scholarship.HeaderText = "Toetus";
+            this.Scholarship.MinimumWidth = 8;
+            this.Scholarship.Name = "Scholarship";
+            this.Scholarship.Width = 75;
             // 
             // contactsBindingSource
             // 
@@ -320,7 +381,7 @@
             this.pictureTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureTextBox.Name = "pictureTextBox";
             this.pictureTextBox.Size = new System.Drawing.Size(250, 26);
-            this.pictureTextBox.TabIndex = 1;
+            this.pictureTextBox.TabIndex = 7;
             // 
             // addPictureLinkButton
             // 
@@ -328,7 +389,7 @@
             this.addPictureLinkButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addPictureLinkButton.Name = "addPictureLinkButton";
             this.addPictureLinkButton.Size = new System.Drawing.Size(252, 46);
-            this.addPictureLinkButton.TabIndex = 4;
+            this.addPictureLinkButton.TabIndex = 8;
             this.addPictureLinkButton.Text = "Lisa pilt";
             this.addPictureLinkButton.UseVisualStyleBackColor = true;
             this.addPictureLinkButton.Click += new System.EventHandler(this.AddPictureLinkButton_Click);
@@ -353,57 +414,19 @@
             this.contactComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactComboBox.Name = "contactComboBox";
             this.contactComboBox.Size = new System.Drawing.Size(250, 28);
-            this.contactComboBox.TabIndex = 2;
+            this.contactComboBox.TabIndex = 6;
             this.contactComboBox.Text = "Pole";
             // 
-            // idDataGridViewTextBoxColumn
+            // clearFieldsButton
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nimi";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Telefoninumber";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-post";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pictureDataGridViewTextBoxColumn
-            // 
-            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
-            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
-            this.pictureDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
-            this.pictureDataGridViewTextBoxColumn.Visible = false;
-            this.pictureDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // groupIdDataGridViewTextBoxColumn
-            // 
-            this.groupIdDataGridViewTextBoxColumn.DataPropertyName = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.HeaderText = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.groupIdDataGridViewTextBoxColumn.Name = "groupIdDataGridViewTextBoxColumn";
-            this.groupIdDataGridViewTextBoxColumn.Visible = false;
-            this.groupIdDataGridViewTextBoxColumn.Width = 150;
+            this.clearFieldsButton.Location = new System.Drawing.Point(142, 591);
+            this.clearFieldsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.clearFieldsButton.Name = "clearFieldsButton";
+            this.clearFieldsButton.Size = new System.Drawing.Size(252, 46);
+            this.clearFieldsButton.TabIndex = 9;
+            this.clearFieldsButton.Text = "Kustuta väljud";
+            this.clearFieldsButton.UseVisualStyleBackColor = true;
+            this.clearFieldsButton.Click += new System.EventHandler(this.clearFieldsButton_Click);
             // 
             // ContactsForm
             // 
@@ -416,6 +439,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.addPictureLinkButton);
+            this.Controls.Add(this.clearFieldsButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.contactPictureBox);
@@ -483,6 +507,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Scholarship;
+        private System.Windows.Forms.Button clearFieldsButton;
     }
 }
 

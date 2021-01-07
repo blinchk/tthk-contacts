@@ -14,5 +14,6 @@ namespace tthk_contacts.Models
         public string Email { get; set;  }
         public string PicturePath { get; set; }
         public int GroupId { get; set; }
+        public bool Scholarship { get; set; }
     }
 }

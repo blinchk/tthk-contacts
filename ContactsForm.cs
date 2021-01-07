@@ -256,5 +256,10 @@ namespace tthk_contacts
                 SelectedGroupData();
             }
         }
+
+        private void clearFieldsButton_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
     }
 }
