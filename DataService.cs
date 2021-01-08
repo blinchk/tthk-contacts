@@ -86,6 +86,16 @@ namespace tthk_contacts
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        internal void AddGroup(string code)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO Groups(Code) VALUES (@code)");
+            command.Parameters.AddWithValue("@code", code);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
         internal void UpdateContact(Contact contact)
         {
             connection.Open();

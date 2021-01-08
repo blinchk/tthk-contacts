@@ -37,7 +37,6 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.contactPictureBox = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
@@ -65,6 +64,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.contactComboBox = new System.Windows.Forms.ComboBox();
             this.clearFieldsButton = new System.Windows.Forms.Button();
+            this.scholarshipCheckbox = new System.Windows.Forms.CheckBox();
+            this.sendMessageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -154,27 +155,16 @@
             this.label4.Text = "Rühm";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(98, 275);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Pilt";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // contactPictureBox
             // 
             this.contactPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contactPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.contactPictureBox.Location = new System.Drawing.Point(140, 274);
+            this.contactPictureBox.Location = new System.Drawing.Point(174, 273);
             this.contactPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactPictureBox.Name = "contactPictureBox";
-            this.contactPictureBox.Size = new System.Drawing.Size(248, 214);
+            this.contactPictureBox.Size = new System.Drawing.Size(165, 174);
             this.contactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.contactPictureBox.TabIndex = 3;
             this.contactPictureBox.TabStop = false;
@@ -426,19 +416,43 @@
             this.clearFieldsButton.TabIndex = 9;
             this.clearFieldsButton.Text = "Kustuta väljud";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
-            this.clearFieldsButton.Click += new System.EventHandler(this.clearFieldsButton_Click);
+            this.clearFieldsButton.Click += new System.EventHandler(this.ClearFieldsButton_Click);
+            // 
+            // scholarshipCheckbox
+            // 
+            this.scholarshipCheckbox.AutoSize = true;
+            this.scholarshipCheckbox.Location = new System.Drawing.Point(213, 467);
+            this.scholarshipCheckbox.Name = "scholarshipCheckbox";
+            this.scholarshipCheckbox.Size = new System.Drawing.Size(84, 24);
+            this.scholarshipCheckbox.TabIndex = 16;
+            this.scholarshipCheckbox.Text = "Toetus";
+            this.scholarshipCheckbox.UseVisualStyleBackColor = true;
+            this.scholarshipCheckbox.CheckedChanged += new System.EventHandler(this.scholarshipCheckbox_CheckedChanged);
+            // 
+            // sendMessageButton
+            // 
+            this.sendMessageButton.Location = new System.Drawing.Point(920, 596);
+            this.sendMessageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.sendMessageButton.Name = "sendMessageButton";
+            this.sendMessageButton.Size = new System.Drawing.Size(242, 46);
+            this.sendMessageButton.TabIndex = 9;
+            this.sendMessageButton.Text = "Saada sõnum";
+            this.sendMessageButton.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
             // 
             // ContactsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 738);
+            this.Controls.Add(this.scholarshipCheckbox);
             this.Controls.Add(this.contactsDataGridView);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.previousButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.addPictureLinkButton);
+            this.Controls.Add(this.sendMessageButton);
             this.Controls.Add(this.clearFieldsButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.searchButton);
@@ -449,7 +463,6 @@
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.pictureLinkLabel);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.label2);
@@ -481,7 +494,6 @@
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.ComboBox groupComboBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox contactPictureBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox searchTextBox;
@@ -509,6 +521,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Scholarship;
         private System.Windows.Forms.Button clearFieldsButton;
+        private System.Windows.Forms.CheckBox scholarshipCheckbox;
+        private System.Windows.Forms.Button sendMessageButton;
     }
 }
 

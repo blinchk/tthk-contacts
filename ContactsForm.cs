@@ -77,6 +77,7 @@ namespace tthk_contacts
             phoneTextBox.Text = "";
             contactPictureBox.Image = null;
             pictureTextBox.Text = "";
+            scholarshipCheckbox.Checked = false;
             contactComboBox.SelectedIndex = 0;
         }
 
@@ -120,6 +121,7 @@ namespace tthk_contacts
             DisplayContactPicture(contactsDataGridView.Rows[row].Cells[4].Value.ToString());
             pictureTextBox.Text = contactsDataGridView.Rows[row].Cells[4].Value.ToString();
             contactComboBox.SelectedIndex = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[5].Value.ToString());
+            scholarshipCheckbox.Checked = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[6].Value);
         }
 
         private int SelectedGroup => groupComboBox.SelectedIndex;
@@ -173,6 +175,7 @@ namespace tthk_contacts
                     Phone = phoneTextBox.Text,
                     Email = emailTextBox.Text,
                     PicturePath = pictureTextBox.Text,
+                    Scholarship = scholarshipCheckbox.Checked,
                     GroupId = groupComboBox.SelectedIndex
                 };
                 DataService dataService = new DataService();
@@ -238,6 +241,7 @@ namespace tthk_contacts
                     Phone = phoneTextBox.Text,
                     Email = emailTextBox.Text,
                     PicturePath = pictureTextBox.Text,
+                    Scholarship = scholarshipCheckbox.Checked,
                     GroupId = contactComboBox.SelectedIndex
                 };
                 DataService dataService = new DataService();
@@ -257,9 +261,19 @@ namespace tthk_contacts
             }
         }
 
-        private void clearFieldsButton_Click(object sender, EventArgs e)
+        private void ClearFieldsButton_Click(object sender, EventArgs e)
         {
             ClearData();
+        }
+
+        private void scholarshipCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SendMessageButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
