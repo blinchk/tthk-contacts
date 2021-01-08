@@ -66,6 +66,10 @@
             this.clearFieldsButton = new System.Windows.Forms.Button();
             this.scholarshipCheckbox = new System.Windows.Forms.CheckBox();
             this.sendMessageButton = new System.Windows.Forms.Button();
+            this.addGroupButton = new System.Windows.Forms.Button();
+            this.newGroupCodeTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.deleteGroupButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -136,7 +140,7 @@
             this.groupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.groupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(956, 52);
+            this.groupComboBox.Location = new System.Drawing.Point(956, 64);
             this.groupComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(206, 28);
@@ -147,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(896, 55);
+            this.label4.Location = new System.Drawing.Point(896, 67);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
@@ -173,7 +177,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 54);
+            this.label6.Location = new System.Drawing.Point(79, 67);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 20);
@@ -183,7 +187,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(140, 52);
+            this.searchTextBox.Location = new System.Drawing.Point(144, 65);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(250, 26);
@@ -246,7 +250,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(398, 45);
+            this.searchButton.Location = new System.Drawing.Point(402, 58);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(98, 39);
@@ -427,7 +431,7 @@
             this.scholarshipCheckbox.TabIndex = 16;
             this.scholarshipCheckbox.Text = "Toetus";
             this.scholarshipCheckbox.UseVisualStyleBackColor = true;
-            this.scholarshipCheckbox.CheckedChanged += new System.EventHandler(this.scholarshipCheckbox_CheckedChanged);
+            this.scholarshipCheckbox.CheckedChanged += new System.EventHandler(this.ScholarshipCheckbox_CheckedChanged);
             // 
             // sendMessageButton
             // 
@@ -439,6 +443,47 @@
             this.sendMessageButton.Text = "Saada sõnum";
             this.sendMessageButton.UseVisualStyleBackColor = true;
             this.sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
+            // 
+            // addGroupButton
+            // 
+            this.addGroupButton.Location = new System.Drawing.Point(715, 33);
+            this.addGroupButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addGroupButton.Name = "addGroupButton";
+            this.addGroupButton.Size = new System.Drawing.Size(173, 35);
+            this.addGroupButton.TabIndex = 2;
+            this.addGroupButton.Text = "Lisa rühm";
+            this.addGroupButton.UseVisualStyleBackColor = true;
+            this.addGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
+            // 
+            // newGroupCodeTextBox
+            // 
+            this.newGroupCodeTextBox.Location = new System.Drawing.Point(587, 64);
+            this.newGroupCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.newGroupCodeTextBox.Name = "newGroupCodeTextBox";
+            this.newGroupCodeTextBox.Size = new System.Drawing.Size(120, 26);
+            this.newGroupCodeTextBox.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(533, 67);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Kood";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // deleteGroupButton
+            // 
+            this.deleteGroupButton.Location = new System.Drawing.Point(715, 78);
+            this.deleteGroupButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteGroupButton.Name = "deleteGroupButton";
+            this.deleteGroupButton.Size = new System.Drawing.Size(173, 35);
+            this.deleteGroupButton.TabIndex = 2;
+            this.deleteGroupButton.Text = "Kustuta rühm";
+            this.deleteGroupButton.UseVisualStyleBackColor = true;
+            this.deleteGroupButton.Click += new System.EventHandler(this.DeleteGroupButton_Click);
             // 
             // ContactsForm
             // 
@@ -455,6 +500,8 @@
             this.Controls.Add(this.sendMessageButton);
             this.Controls.Add(this.clearFieldsButton);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.deleteGroupButton);
+            this.Controls.Add(this.addGroupButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.contactComboBox);
@@ -466,9 +513,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.newGroupCodeTextBox);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -523,6 +572,10 @@
         private System.Windows.Forms.Button clearFieldsButton;
         private System.Windows.Forms.CheckBox scholarshipCheckbox;
         private System.Windows.Forms.Button sendMessageButton;
+        private System.Windows.Forms.Button addGroupButton;
+        private System.Windows.Forms.TextBox newGroupCodeTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button deleteGroupButton;
     }
 }
 

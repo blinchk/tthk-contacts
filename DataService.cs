@@ -90,7 +90,24 @@ namespace tthk_contacts
         internal void AddGroup(string code)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Groups(Code) VALUES (@code)");
+            SqlCommand command = new SqlCommand("INSERT INTO Groups(Code) VALUES (@code);", connection);
+            command.Parameters.AddWithValue("@code", code);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        internal void DeleteGroup(string code)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("DELETE FROM Groups WHERE Code = @code;", connection);
+            command.Parameters.AddWithValue("@code", code);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        internal void ClearContactsGroup(string code)
+        {
+            connection.Open();
+            var command = new SqlCommand("UPDATE Contacts SET GroupId = NULL WHERE Group.Code = @code", connection);
             command.Parameters.AddWithValue("@code", code);
             command.ExecuteNonQuery();
             connection.Close();

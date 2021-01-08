@@ -12,9 +12,10 @@ namespace tthk_contacts
 {
     public partial class SendMailForm : Form
     {
-        public SendMailForm()
+        public SendMailForm(string recepientEmail)
         {
             InitializeComponent();
+            recepientTextBox.Text = recepientEmail;
         }
     }
 }
