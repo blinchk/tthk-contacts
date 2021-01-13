@@ -195,10 +195,10 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(142, 652);
+            this.addButton.Location = new System.Drawing.Point(140, 652);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(252, 46);
+            this.addButton.Size = new System.Drawing.Size(254, 46);
             this.addButton.TabIndex = 9;
             this.addButton.Text = "Lisa";
             this.addButton.UseVisualStyleBackColor = true;
@@ -379,10 +379,10 @@
             // 
             // addPictureLinkButton
             // 
-            this.addPictureLinkButton.Location = new System.Drawing.Point(142, 535);
+            this.addPictureLinkButton.Location = new System.Drawing.Point(140, 535);
             this.addPictureLinkButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addPictureLinkButton.Name = "addPictureLinkButton";
-            this.addPictureLinkButton.Size = new System.Drawing.Size(252, 46);
+            this.addPictureLinkButton.Size = new System.Drawing.Size(254, 46);
             this.addPictureLinkButton.TabIndex = 8;
             this.addPictureLinkButton.Text = "Lisa pilt";
             this.addPictureLinkButton.UseVisualStyleBackColor = true;
@@ -413,10 +413,10 @@
             // 
             // clearFieldsButton
             // 
-            this.clearFieldsButton.Location = new System.Drawing.Point(142, 591);
+            this.clearFieldsButton.Location = new System.Drawing.Point(140, 591);
             this.clearFieldsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.clearFieldsButton.Name = "clearFieldsButton";
-            this.clearFieldsButton.Size = new System.Drawing.Size(252, 46);
+            this.clearFieldsButton.Size = new System.Drawing.Size(254, 46);
             this.clearFieldsButton.TabIndex = 9;
             this.clearFieldsButton.Text = "Kustuta väljud";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
@@ -457,16 +457,16 @@
             // 
             // newGroupCodeTextBox
             // 
-            this.newGroupCodeTextBox.Location = new System.Drawing.Point(587, 64);
+            this.newGroupCodeTextBox.Location = new System.Drawing.Point(562, 64);
             this.newGroupCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newGroupCodeTextBox.Name = "newGroupCodeTextBox";
-            this.newGroupCodeTextBox.Size = new System.Drawing.Size(120, 26);
+            this.newGroupCodeTextBox.Size = new System.Drawing.Size(145, 26);
             this.newGroupCodeTextBox.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(533, 67);
+            this.label5.Location = new System.Drawing.Point(508, 67);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 20);
@@ -522,7 +522,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ContactsForm";
-            this.Text = "ContactsForm";
+            this.Text = "Kontaktid";
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).EndInit();

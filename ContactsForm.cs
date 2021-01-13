@@ -79,8 +79,15 @@ namespace tthk_contacts
             contactComboBox.SelectedIndex = 0;
         }
 
+        private void ClearGroups()
+        {
+            groupComboBox.Items.Clear();
+            contactComboBox.Items.Clear();
+        }
+
         private void RequestGroups()
         {
+            ClearGroups();
             var dataService = new DataService();
             groupComboBox.Items.Add("Kõik");
             contactComboBox.Items.Add("Pole");
