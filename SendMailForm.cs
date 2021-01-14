@@ -17,5 +17,10 @@ namespace tthk_contacts
             InitializeComponent();
             recepientTextBox.Text = recepientEmail;
         }
+
+        private void wholeContactsButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

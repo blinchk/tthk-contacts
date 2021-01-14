@@ -11,7 +11,7 @@ namespace tthk_contacts
     {
         private SqlDataAdapter adapter;
         private SqlCommand command;
-        private Contact currentContact;
+        private Student currentStudent;
         private int id;
 
         public ContactsForm()
@@ -27,7 +27,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.SearchData();
+            adapter = dataService.GetStudents();
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -36,7 +36,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.SearchData(searchName);
+            adapter = dataService.GetStudents(searchName);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -45,7 +45,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.SearchData(groupId);
+            adapter = dataService.GetStudents(groupId);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -54,7 +54,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.SearchData(searchName, groupId);
+            adapter = dataService.GetStudents(searchName, groupId);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -91,7 +91,7 @@ namespace tthk_contacts
             var dataService = new DataService();
             groupComboBox.Items.Add("Kõik");
             contactComboBox.Items.Add("Pole");
-            foreach (var group in dataService.SearchGroups())
+            foreach (var group in dataService.GetGroups())
             {
                 groupComboBox.Items.Add(group);
                 contactComboBox.Items.Add(group);
@@ -162,7 +162,7 @@ namespace tthk_contacts
         {
             if (ValidateTextBox(nameTextBox))
             {
-                currentContact = new Contact
+                currentStudent = new Student
                 {
                     Name = nameTextBox.Text,
                     Phone = phoneTextBox.Text,
@@ -172,7 +172,7 @@ namespace tthk_contacts
                     GroupId = groupComboBox.SelectedIndex
                 };
                 var dataService = new DataService();
-                dataService.AddContact(currentContact);
+                dataService.AddStudent(currentStudent);
                 SelectedGroupData();
                 ClearData();
             }
@@ -216,7 +216,7 @@ namespace tthk_contacts
         {
             if (ValidateTextBox(nameTextBox) && id != 0)
             {
-                currentContact = new Contact
+                currentStudent = new Student
                 {
                     Id = id,
                     Name = nameTextBox.Text,
@@ -227,7 +227,7 @@ namespace tthk_contacts
                     GroupId = contactComboBox.SelectedIndex
                 };
                 var dataService = new DataService();
-                dataService.UpdateContact(currentContact);
+                dataService.UpdateStudent(currentStudent);
                 SelectedGroupData();
             }
         }
@@ -277,7 +277,7 @@ namespace tthk_contacts
             if (groupComboBox.SelectedIndex > 0)
             {
                 var dataService = new DataService();
-                dataService.ClearContactsGroup(groupComboBox.SelectedText);
+                dataService.ClearStudentsGroup(groupComboBox.SelectedText);
                 dataService.DeleteGroup(groupComboBox.SelectedText);
                 RequestGroups();
             }

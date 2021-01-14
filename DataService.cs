@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using tthk_contacts.Models;
 
@@ -8,6 +9,11 @@ namespace tthk_contacts
     {
         SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\AppData\contacts.mdf; Integrated Security = True");
 
+        /// <summary>
+        /// Validates text, that it isn't blank.
+        /// </summary>
+        /// <param name="text">Text to validate</param>
+        /// <returns>Is text isn't blank?</returns>
         internal bool ValidateText(string text)
         {
             if (text == "")
@@ -17,8 +23,12 @@ namespace tthk_contacts
 
             return true;
         }
-
-        internal List<string> SearchGroups()
+        
+        /// <summary>
+        /// Receives list of groups.
+        /// </summary>
+        /// <returns>List with groups.</returns>
+        internal List<string> GetGroups()
         {
             connection.Open();
             List<string> groups = new List<string>();
@@ -33,12 +43,22 @@ namespace tthk_contacts
             connection.Close();
             return groups;
         }
-        internal SqlDataAdapter SearchData()
+
+        /// <summary>
+        /// Receives whole student's records.
+        /// </summary>
+        /// <returns>SqlDataAdapter with students' records.</returns>
+        internal SqlDataAdapter GetStudents()
         {
             return new SqlDataAdapter("SELECT * FROM Contacts;", connection);
         }
 
-        internal SqlDataAdapter SearchData(int groupId)
+        /// <summary>
+        /// Receives students' records, which suitable by groupId.
+        /// </summary>
+        /// <param name="groupId">Group to search ID</param>
+        /// <returns>SqlDataAdapter with students' records.</returns>
+        internal SqlDataAdapter GetStudents(int groupId)
         {
             connection.Open();
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId;", connection);
@@ -47,7 +67,12 @@ namespace tthk_contacts
             return dataAdapter;
         }
 
-        internal SqlDataAdapter SearchData(string searchName)
+        /// <summary>
+        /// Receives students' records, which suitable by searchName.
+        /// </summary>
+        /// <param name="searchName">Full or name's part to search</param>
+        /// <returns>SqlDataAdapter with students' records.</returns>
+        internal SqlDataAdapter GetStudents(string searchName)
         {
             connection.Open();
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name;", connection);
@@ -56,7 +81,13 @@ namespace tthk_contacts
             return dataAdapter;
         }
 
-        internal SqlDataAdapter SearchData(string searchName, int groupId)
+        /// <summary>
+        /// Receives students' records, which suitable by searchName and groupId.
+        /// </summary>
+        /// <param name="searchName">Full or name's part to search</param>
+        /// <param name="groupId">Group to search ID</param>
+        /// <returns>SqlDataAdapter with students' records.</returns>
+        internal SqlDataAdapter GetStudents(string searchName, int groupId)
         {
             connection.Open();
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name AND groupId = @groupId;", connection);
@@ -66,27 +97,53 @@ namespace tthk_contacts
             return dataAdapter;
         }
 
-        internal void AddContact(Contact contact)
+        /// <summary>
+        /// Receives whole parents' records from database.
+        /// </summary>
+        /// <returns>SqlDataAdapter with parents' records.</returns>
+        internal SqlDataAdapter GetParents()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Adds student to database.
+        /// </summary>
+        /// <param name="student">Student</param>
+        internal void AddStudent(Student student)
         {
             connection.Open();
             SqlCommand command;
-            if (contact.GroupId > 0)
+            if (student.GroupId > 0)
             {
                 command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, GroupId) VALUES (@name, @phone, @email, @picture, @groupId)", connection);
-                command.Parameters.AddWithValue("@groupId", contact.GroupId);
+                command.Parameters.AddWithValue("@groupId", student.GroupId);
             }
             else
             {
                 command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture) VALUES (@name, @phone, @email, @picture)", connection);
             }
-            command.Parameters.AddWithValue("@name", contact.Name);
-            command.Parameters.AddWithValue("@phone", contact.Phone);
-            command.Parameters.AddWithValue("@email", contact.Email);
-            command.Parameters.AddWithValue("@picture", contact.PicturePath);
+            command.Parameters.AddWithValue("@name", student.Name);
+            command.Parameters.AddWithValue("@phone", student.Phone);
+            command.Parameters.AddWithValue("@email", student.Email);
+            command.Parameters.AddWithValue("@picture", student.PicturePath);
             command.ExecuteNonQuery();
             connection.Close();
         }
 
+        /// <summary>
+        /// Adds parent record to database.
+        /// </summary>
+        /// <param name="parent">Parent</param>
+        internal void AddParent(Parent parent)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Adds group to database.
+        /// </summary>
+        /// <param name="code">Group to add code</param>
         internal void AddGroup(string code)
         {
             connection.Open();
@@ -96,6 +153,10 @@ namespace tthk_contacts
             connection.Close();
         }
 
+        /// <summary>
+        /// Deletes group with a suitable code.
+        /// </summary>
+        /// <param name="code">Group to delete code</param>
         internal void DeleteGroup(string code)
         {
             connection.Open();
@@ -104,7 +165,11 @@ namespace tthk_contacts
             command.ExecuteNonQuery();
             connection.Close();
         }
-        internal void ClearContactsGroup(string code)
+        /// <summary>
+        /// Clear's group field in whole records with a suitable code in GroupId field.
+        /// </summary>
+        /// <param name="code">Group to clear code</param>
+        internal void ClearStudentsGroup(string code)
         {
             connection.Open();
             var command = new SqlCommand("UPDATE Contacts SET GroupId = NULL WHERE Group.Code = @code", connection);
@@ -113,20 +178,37 @@ namespace tthk_contacts
             connection.Close();
         }
 
-        internal void UpdateContact(Contact contact)
+        /// <summary>
+        /// Updates student in database.
+        /// </summary>
+        /// <param name="student">Student</param>
+        internal void UpdateStudent(Student student)
         {
             connection.Open();
             SqlCommand command = new SqlCommand("UPDATE Contacts SET Name = @name, Phone = @phone, Email = @email, Picture = @picture, GroupId = @groupId WHERE Id = @id", connection);
-            command.Parameters.AddWithValue("@id", contact.Id);
-            command.Parameters.AddWithValue("@name", contact.Name);
-            command.Parameters.AddWithValue("@phone", contact.Phone);
-            command.Parameters.AddWithValue("@email", contact.Email);
-            command.Parameters.AddWithValue("@picture", contact.PicturePath);
-            command.Parameters.AddWithValue("@groupId", contact.GroupId);
+            command.Parameters.AddWithValue("@id", student.Id);
+            command.Parameters.AddWithValue("@name", student.Name);
+            command.Parameters.AddWithValue("@phone", student.Phone);
+            command.Parameters.AddWithValue("@email", student.Email);
+            command.Parameters.AddWithValue("@picture", student.PicturePath);
+            command.Parameters.AddWithValue("@groupId", student.GroupId);
             command.ExecuteNonQuery();
             connection.Close();
         }
 
+        /// <summary>
+        /// Updates parent in database.
+        /// </summary>
+        /// <param name="parent">Parent</param>
+        internal void UpdateParent(Parent parent)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Deletes contact from database.
+        /// </summary>
+        /// <param name="id">Contact ID</param>
         internal void DeleteContact(int id)
         {
             connection.Open();
@@ -134,6 +216,15 @@ namespace tthk_contacts
             command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
             connection.Close();
+        }
+
+        /// <summary>
+        /// Deletes parent from database.
+        /// </summary>
+        /// <param name="id">Parent ID</param>
+        internal void DeleteParent(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

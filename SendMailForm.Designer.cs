@@ -127,6 +127,7 @@ namespace tthk_contacts
             this.wholeContactsButton.TabIndex = 3;
             this.wholeContactsButton.Text = "Kõik kontaktid";
             this.wholeContactsButton.UseVisualStyleBackColor = true;
+            this.wholeContactsButton.Click += new System.EventHandler(this.wholeContactsButton_Click);
             // 
             // SendMailForm
             // 

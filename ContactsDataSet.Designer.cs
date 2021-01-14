@@ -1460,7 +1460,7 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship FROM Contacts WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ContactsDataSet.ContactsDataTable GetData() {
+        public virtual ContactsDataSet.ContactsDataTable GetStudents() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             ContactsDataSet.ContactsDataTable dataTable = new ContactsDataSet.ContactsDataTable();
             this.Adapter.Fill(dataTable);
@@ -1909,7 +1909,7 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship FROM Contacts WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ContactsDataSet.GroupsDataTable GetData() {
+        public virtual ContactsDataSet.GroupsDataTable GetStudents() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             ContactsDataSet.GroupsDataTable dataTable = new ContactsDataSet.GroupsDataTable();
             this.Adapter.Fill(dataTable);
