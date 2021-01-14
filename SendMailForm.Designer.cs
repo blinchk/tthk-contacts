@@ -37,7 +37,7 @@ namespace tthk_contacts
             this.contentTextBox = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.linkFileButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.sendMessageButton = new System.Windows.Forms.Button();
             this.wholeContactsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -110,14 +110,15 @@ namespace tthk_contacts
             this.linkFileButton.Text = "Lisa fail";
             this.linkFileButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // sendMessageButton
             // 
-            this.button4.Location = new System.Drawing.Point(576, 418);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(235, 66);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Saata";
-            this.button4.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Location = new System.Drawing.Point(576, 418);
+            this.sendMessageButton.Name = "sendMessageButton";
+            this.sendMessageButton.Size = new System.Drawing.Size(235, 66);
+            this.sendMessageButton.TabIndex = 7;
+            this.sendMessageButton.Text = "Saata";
+            this.sendMessageButton.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Click += new System.EventHandler(this.sendMessageButton_Click);
             // 
             // wholeContactsButton
             // 
@@ -137,7 +138,7 @@ namespace tthk_contacts
             this.Controls.Add(this.linkFileButton);
             this.Controls.Add(this.wholeContactsButton);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.sendMessageButton);
             this.Controls.Add(this.contentTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.subjectTextBox);
@@ -161,7 +162,7 @@ namespace tthk_contacts
         private System.Windows.Forms.RichTextBox contentTextBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button linkFileButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button sendMessageButton;
         private System.Windows.Forms.Button wholeContactsButton;
     }
 }

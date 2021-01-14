@@ -119,7 +119,7 @@
       <DependentUpon>ContactsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataService.cs" />
-    <Compile Include="Models\Mail.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Parent.cs" />

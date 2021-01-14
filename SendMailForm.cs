@@ -22,5 +22,16 @@ namespace tthk_contacts
         {
             
         }
+
+        private void sendMessageButton_Click(object sender, EventArgs e)
+        {
+            Message message = new Message
+            {
+                Recipients = new List<string>() { recepientTextBox.Text },
+                Subject = subjectTextBox.Text,
+                Body = contentTextBox.Text
+            };
+            message.Send();
+        }
     }
 }
