@@ -20,12 +20,22 @@ namespace tthk_contacts
 
         public List<string> DivideEmailAddresses(string emails)
         {
-            return emails.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> emailsList;
+            if (emails.Contains(';'))
+            {
+                emailsList = emails.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries)
+                    .ToList();
+                emailsList.ForEach(e => e.Trim());
+                return emailsList;
+            }
+
+            return new List<string> { emails.Trim() };
         }
 
         private void wholeContactsButton_Click(object sender, EventArgs e)
         {
-
+            DataService dataService = new DataService();
+            recepientTextBox.Text = dataService.GetAllStudentsEmails();
         }
 
         private void sendMessageButton_Click(object sender, EventArgs e)

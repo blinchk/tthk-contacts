@@ -45,6 +45,28 @@ namespace tthk_contacts
         }
 
         /// <summary>
+        /// Receives whole students' emails from database.
+        /// </summary>
+        /// <returns>String with emails</returns>
+        internal string GetAllStudentsEmails()
+        {
+            connection.Open();
+            DataService dataService = new DataService();
+            string emails = "";
+            SqlCommand command = new SqlCommand("SELECT Email from Contacts;", connection);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    if (dataService.ValidateText(reader["Email"].ToString()))
+                        emails += reader["Email"].ToString() + "; ";
+                }
+            }
+            connection.Close(); 
+            return emails;
+        }
+
+        /// <summary>
         /// Receives whole student's records.
         /// </summary>
         /// <returns>SqlDataAdapter with students' records.</returns>
