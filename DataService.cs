@@ -226,5 +226,15 @@ namespace tthk_contacts
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Authorizes user from database.
+        /// </summary>
+        /// <param name="login">User's login</param>
+        /// <param name="password">User's password</param>
+        internal void AuthorizeUser(string login, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
