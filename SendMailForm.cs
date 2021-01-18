@@ -18,16 +18,21 @@ namespace tthk_contacts
             recepientTextBox.Text = recepientEmail;
         }
 
+        public List<string> DivideEmailAddresses(string emails)
+        {
+            return emails.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+        }
+
         private void wholeContactsButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void sendMessageButton_Click(object sender, EventArgs e)
         {
             Message message = new Message
             {
-                Recipients = new List<string>() { recepientTextBox.Text },
+                Recipients = DivideEmailAddresses(recepientTextBox.Text),
                 Subject = subjectTextBox.Text,
                 Body = contentTextBox.Text
             };
