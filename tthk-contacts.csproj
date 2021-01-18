@@ -104,6 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthorizationForm.Designer.cs">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContactsDataSet.cs">
       <DependentUpon>ContactsDataSet.xsd</DependentUpon>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="SendMailForm.Designer.cs">
       <DependentUpon>SendMailForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AuthorizationForm.resx">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactsForm.resx">
       <DependentUpon>ContactsForm.cs</DependentUpon>
     </EmbeddedResource>
