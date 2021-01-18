@@ -138,17 +138,18 @@ namespace tthk_contacts
             SqlCommand command;
             if (student.GroupId > 0)
             {
-                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, GroupId) VALUES (@name, @phone, @email, @picture, @groupId)", connection);
+                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, GroupId, DateOfBirth) VALUES (@name, @phone, @email, @picture, @groupId, @dateOfBirth)", connection);
                 command.Parameters.AddWithValue("@groupId", student.GroupId);
             }
             else
             {
-                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture) VALUES (@name, @phone, @email, @picture)", connection);
+                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, DateOfBirth) VALUES (@name, @phone, @email, @picture, @dateOfBirth)", connection);
             }
             command.Parameters.AddWithValue("@name", student.Name);
             command.Parameters.AddWithValue("@phone", student.Phone);
             command.Parameters.AddWithValue("@email", student.Email);
             command.Parameters.AddWithValue("@picture", student.PicturePath);
+            command.Parameters.AddWithValue("@dateOfBirth", student.DateOfBirth);
             command.ExecuteNonQuery();
             connection.Close();
         }

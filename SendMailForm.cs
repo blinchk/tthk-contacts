@@ -20,10 +20,9 @@ namespace tthk_contacts
 
         public List<string> DivideEmailAddresses(string emails)
         {
-            List<string> emailsList;
             if (emails.Contains(';'))
             {
-                emailsList = emails.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries)
+                var emailsList = emails.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries)
                     .ToList();
                 emailsList.ForEach(e => e.Trim());
                 return emailsList;

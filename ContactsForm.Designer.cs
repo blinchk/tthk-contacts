@@ -47,17 +47,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.contactsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
-            this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsTableAdapter = new tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter();
             this.pictureLinkLabel = new System.Windows.Forms.Label();
             this.pictureTextBox = new System.Windows.Forms.TextBox();
             this.addPictureLinkButton = new System.Windows.Forms.Button();
@@ -70,6 +59,19 @@
             this.newGroupCodeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.deleteGroupButton = new System.Windows.Forms.Button();
+            this.dateOfBirthPicker = new System.Windows.Forms.DateTimePicker();
+            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
+            this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactsTableAdapter = new tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -165,10 +167,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contactPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.contactPictureBox.Location = new System.Drawing.Point(174, 273);
+            this.contactPictureBox.Location = new System.Drawing.Point(195, 273);
             this.contactPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactPictureBox.Name = "contactPictureBox";
-            this.contactPictureBox.Size = new System.Drawing.Size(165, 174);
+            this.contactPictureBox.Size = new System.Drawing.Size(147, 145);
             this.contactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.contactPictureBox.TabIndex = 3;
             this.contactPictureBox.TabStop = false;
@@ -270,7 +272,8 @@
             this.emailDataGridViewTextBoxColumn,
             this.pictureDataGridViewTextBoxColumn,
             this.groupIdDataGridViewTextBoxColumn,
-            this.Scholarship});
+            this.Scholarship,
+            this.DateOfBirth});
             this.contactsDataGridView.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.contactsBindingSource, "Id", true));
             this.contactsDataGridView.DataSource = this.contactsBindingSource;
             this.contactsDataGridView.Location = new System.Drawing.Point(402, 123);
@@ -280,83 +283,6 @@
             this.contactsDataGridView.Size = new System.Drawing.Size(760, 458);
             this.contactsDataGridView.TabIndex = 15;
             this.contactsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ContactsDataGridView_RowHeaderMouseClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nimi";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Telefoninumber";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-post";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pictureDataGridViewTextBoxColumn
-            // 
-            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
-            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
-            this.pictureDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
-            this.pictureDataGridViewTextBoxColumn.Visible = false;
-            this.pictureDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // groupIdDataGridViewTextBoxColumn
-            // 
-            this.groupIdDataGridViewTextBoxColumn.DataPropertyName = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.HeaderText = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.groupIdDataGridViewTextBoxColumn.Name = "groupIdDataGridViewTextBoxColumn";
-            this.groupIdDataGridViewTextBoxColumn.Visible = false;
-            this.groupIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // Scholarship
-            // 
-            this.Scholarship.DataPropertyName = "Scholarship";
-            this.Scholarship.HeaderText = "Toetus";
-            this.Scholarship.MinimumWidth = 8;
-            this.Scholarship.Name = "Scholarship";
-            this.Scholarship.Width = 75;
-            // 
-            // contactsBindingSource
-            // 
-            this.contactsBindingSource.DataMember = "Contacts";
-            this.contactsBindingSource.DataSource = this.contactsDataSet;
-            // 
-            // contactsDataSet
-            // 
-            this.contactsDataSet.DataSetName = "ContactsDataSet";
-            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contactsDataSetBindingSource
-            // 
-            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
-            this.contactsDataSetBindingSource.Position = 0;
-            // 
-            // contactsTableAdapter
-            // 
-            this.contactsTableAdapter.ClearBeforeFill = true;
             // 
             // pictureLinkLabel
             // 
@@ -485,11 +411,104 @@
             this.deleteGroupButton.UseVisualStyleBackColor = true;
             this.deleteGroupButton.Click += new System.EventHandler(this.DeleteGroupButton_Click);
             // 
+            // dateOfBirthPicker
+            // 
+            this.dateOfBirthPicker.Location = new System.Drawing.Point(140, 426);
+            this.dateOfBirthPicker.Name = "dateOfBirthPicker";
+            this.dateOfBirthPicker.Size = new System.Drawing.Size(250, 26);
+            this.dateOfBirthPicker.TabIndex = 17;
+            // 
+            // contactsBindingSource
+            // 
+            this.contactsBindingSource.DataMember = "Contacts";
+            this.contactsBindingSource.DataSource = this.contactsDataSet;
+            // 
+            // contactsDataSet
+            // 
+            this.contactsDataSet.DataSetName = "ContactsDataSet";
+            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // contactsDataSetBindingSource
+            // 
+            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
+            this.contactsDataSetBindingSource.Position = 0;
+            // 
+            // contactsTableAdapter
+            // 
+            this.contactsTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nimi";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Telefoninumber";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "E-post";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pictureDataGridViewTextBoxColumn
+            // 
+            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
+            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
+            this.pictureDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
+            this.pictureDataGridViewTextBoxColumn.Visible = false;
+            this.pictureDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // groupIdDataGridViewTextBoxColumn
+            // 
+            this.groupIdDataGridViewTextBoxColumn.DataPropertyName = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn.HeaderText = "GroupId";
+            this.groupIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.groupIdDataGridViewTextBoxColumn.Name = "groupIdDataGridViewTextBoxColumn";
+            this.groupIdDataGridViewTextBoxColumn.Visible = false;
+            this.groupIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // Scholarship
+            // 
+            this.Scholarship.DataPropertyName = "Scholarship";
+            this.Scholarship.HeaderText = "Toetus";
+            this.Scholarship.MinimumWidth = 8;
+            this.Scholarship.Name = "Scholarship";
+            this.Scholarship.Width = 75;
+            // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.DataPropertyName = "DateOfBirth";
+            this.DateOfBirth.HeaderText = "DateOfBirth";
+            this.DateOfBirth.MinimumWidth = 8;
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.Width = 150;
+            // 
             // ContactsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 738);
+            this.Controls.Add(this.dateOfBirthPicker);
             this.Controls.Add(this.scholarshipCheckbox);
             this.Controls.Add(this.contactsDataGridView);
             this.Controls.Add(this.nextButton);
@@ -562,13 +581,6 @@
         private System.Windows.Forms.Button addPictureLinkButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox contactComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Scholarship;
         private System.Windows.Forms.Button clearFieldsButton;
         private System.Windows.Forms.CheckBox scholarshipCheckbox;
         private System.Windows.Forms.Button sendMessageButton;
@@ -576,6 +588,15 @@
         private System.Windows.Forms.TextBox newGroupCodeTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button deleteGroupButton;
+        private System.Windows.Forms.DateTimePicker dateOfBirthPicker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Scholarship;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
     }
 }
 

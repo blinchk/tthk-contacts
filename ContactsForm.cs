@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using tthk_contacts.Models;
 
@@ -122,6 +123,7 @@ namespace tthk_contacts
             pictureTextBox.Text = contactsDataGridView.Rows[row].Cells[4].Value.ToString();
             contactComboBox.SelectedIndex = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[5].Value.ToString());
             scholarshipCheckbox.Checked = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[6].Value);
+            dateOfBirthPicker.Value = Convert.ToDateTime(contactsDataGridView.Rows[row].Cells[7].Value);
         }
 
         private void contactPictureBox_Click(object sender, EventArgs e)
@@ -169,7 +171,8 @@ namespace tthk_contacts
                     Email = emailTextBox.Text,
                     PicturePath = pictureTextBox.Text,
                     Scholarship = scholarshipCheckbox.Checked,
-                    GroupId = groupComboBox.SelectedIndex
+                    GroupId = groupComboBox.SelectedIndex,
+                    DateOfBirth = dateOfBirthPicker.Value
                 };
                 var dataService = new DataService();
                 dataService.AddStudent(currentStudent);
