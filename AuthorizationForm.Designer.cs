@@ -54,6 +54,7 @@ namespace tthk_contacts
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(252, 35);
             this.loginTextBox.TabIndex = 1;
+            this.loginTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.loginTextBox_KeyUp);
             // 
             // label2
             // 
@@ -72,7 +73,8 @@ namespace tthk_contacts
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(252, 35);
-            this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyUp);
             // 
             // loginButton
             // 
@@ -80,7 +82,7 @@ namespace tthk_contacts
             this.loginButton.Location = new System.Drawing.Point(281, 162);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(167, 47);
-            this.loginButton.TabIndex = 2;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Logi sisse";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Crypto;
 
 namespace tthk_contacts
 {
@@ -45,7 +49,12 @@ namespace tthk_contacts
                 Subject = subjectTextBox.Text,
                 Body = contentTextBox.Text
             };
+            if (addScholarshipFileCheckbox.Checked)
+            {
+                message.Attachment = new Attachment(@"AppData\Eritoetuse avaldus.pdf");
+            }
             message.Send();
+            Close();
         }
     }
 }

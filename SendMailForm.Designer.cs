@@ -36,9 +36,9 @@ namespace tthk_contacts
             this.label3 = new System.Windows.Forms.Label();
             this.contentTextBox = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.linkFileButton = new System.Windows.Forms.Button();
             this.sendMessageButton = new System.Windows.Forms.Button();
             this.wholeContactsButton = new System.Windows.Forms.Button();
+            this.addScholarshipFileCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -101,15 +101,6 @@ namespace tthk_contacts
             this.button2.Text = "Vali saaja";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // linkFileButton
-            // 
-            this.linkFileButton.Location = new System.Drawing.Point(219, 12);
-            this.linkFileButton.Name = "linkFileButton";
-            this.linkFileButton.Size = new System.Drawing.Size(114, 36);
-            this.linkFileButton.TabIndex = 2;
-            this.linkFileButton.Text = "Lisa fail";
-            this.linkFileButton.UseVisualStyleBackColor = true;
-            // 
             // sendMessageButton
             // 
             this.sendMessageButton.Location = new System.Drawing.Point(576, 418);
@@ -122,7 +113,7 @@ namespace tthk_contacts
             // 
             // wholeContactsButton
             // 
-            this.wholeContactsButton.Location = new System.Drawing.Point(339, 13);
+            this.wholeContactsButton.Location = new System.Drawing.Point(219, 12);
             this.wholeContactsButton.Name = "wholeContactsButton";
             this.wholeContactsButton.Size = new System.Drawing.Size(136, 36);
             this.wholeContactsButton.TabIndex = 3;
@@ -130,12 +121,22 @@ namespace tthk_contacts
             this.wholeContactsButton.UseVisualStyleBackColor = true;
             this.wholeContactsButton.Click += new System.EventHandler(this.wholeContactsButton_Click);
             // 
+            // addScholarshipFileCheckbox
+            // 
+            this.addScholarshipFileCheckbox.AutoSize = true;
+            this.addScholarshipFileCheckbox.Location = new System.Drawing.Point(99, 418);
+            this.addScholarshipFileCheckbox.Name = "addScholarshipFileCheckbox";
+            this.addScholarshipFileCheckbox.Size = new System.Drawing.Size(180, 24);
+            this.addScholarshipFileCheckbox.TabIndex = 8;
+            this.addScholarshipFileCheckbox.Text = "Lisa toetuse avaldus";
+            this.addScholarshipFileCheckbox.UseVisualStyleBackColor = true;
+            // 
             // SendMailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 521);
-            this.Controls.Add(this.linkFileButton);
+            this.Controls.Add(this.addScholarshipFileCheckbox);
             this.Controls.Add(this.wholeContactsButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.sendMessageButton);
@@ -161,8 +162,8 @@ namespace tthk_contacts
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox contentTextBox;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button linkFileButton;
         private System.Windows.Forms.Button sendMessageButton;
         private System.Windows.Forms.Button wholeContactsButton;
+        private System.Windows.Forms.CheckBox addScholarshipFileCheckbox;
     }
 }

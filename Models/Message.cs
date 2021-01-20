@@ -34,7 +34,10 @@ namespace tthk_contacts
                 }
                 mailMessage.Subject = Subject;
                 mailMessage.Body = Body;
-                // mailMessage.Attachments.Add(Attachment);
+                if (Attachment != null)
+                {
+                    mailMessage.Attachments.Add(Attachment);
+                }
                 smtpClient.Send(mailMessage);
             }
             catch (Exception e)

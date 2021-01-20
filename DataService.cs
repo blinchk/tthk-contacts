@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Net.Configuration;
 using tthk_contacts.Models;
 
 namespace tthk_contacts
@@ -254,10 +255,20 @@ namespace tthk_contacts
         /// Authorizes user from database.
         /// </summary>
         /// <param name="login">User's login</param>
-        /// <param name="password">User's password</param>
-        internal void AuthorizeUser(string login, string password)
+        internal string GetPassword(string login)
         {
-            throw new NotImplementedException();
+            connection.Open();
+            SqlCommand command = new SqlCommand("SELECT Password FROM Users WHERE Login = @login", connection);
+            command.Parameters.AddWithValue("@login", login);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    return reader["Password"].ToString();
+                }
+            }
+
+            return null;
         }
     }
 }

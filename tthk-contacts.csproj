@@ -157,6 +157,9 @@
     <EmbeddedResource Include="SendMailForm.resx">
       <DependentUpon>SendMailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AppData\Eritoetuse avaldus.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="ContactsDataSet.xsc">
       <DependentUpon>ContactsDataSet.xsd</DependentUpon>
     </None>

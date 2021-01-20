@@ -16,7 +16,7 @@ namespace tthk_contacts
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ContactsForm());
+            Application.Run(new AuthorizationForm());
         }
     }
 }

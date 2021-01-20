@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using tthk_contacts.Models;
 
