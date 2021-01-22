@@ -9,7 +9,7 @@ namespace tthk_contacts.Models
     /// <summary>
     /// Class for student record.
     /// </summary>
-    class Student : Contact
+    public class Student : Contact
     {
         public string PicturePath { get; set; }
         public int GroupId { get; set; }

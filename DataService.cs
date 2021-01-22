@@ -59,7 +59,7 @@ namespace tthk_contacts
             {
                 while (reader.Read())
                 {
-                    if (dataService.ValidateText(reader["Email"].ToString()))
+                    if (!String.IsNullOrEmpty(reader["Email"].ToString()))
                         emails += reader["Email"].ToString() + "; ";
                 }
             }
@@ -70,21 +70,42 @@ namespace tthk_contacts
         /// <summary>
         /// Receives whole student's records.
         /// </summary>
+        /// <param name="showInactive">To show inactive students?</param>
         /// <returns>SqlDataAdapter with students' records.</returns>
-        internal SqlDataAdapter GetStudents()
+        internal SqlDataAdapter GetStudents(bool showInactive)
         {
-            return new SqlDataAdapter("SELECT * FROM Contacts;", connection);
+            SqlDataAdapter dataAdapter;
+            connection.Open();
+            if (showInactive)
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts;", connection);
+            }
+            else
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE Active = 1;", connection);
+            }
+            connection.Close();
+            return dataAdapter;
         }
 
         /// <summary>
         /// Receives students' records, which suitable by groupId.
         /// </summary>
         /// <param name="groupId">Group to search ID</param>
+        /// /// <param name="showInactive">To show inactive students?</param>
         /// <returns>SqlDataAdapter with students' records.</returns>
-        internal SqlDataAdapter GetStudents(int groupId)
+        internal SqlDataAdapter GetStudents(int groupId, bool showInactive)
         {
             connection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId;", connection);
+            SqlDataAdapter dataAdapter;
+            if (showInactive)
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId;", connection);
+            }
+            else
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId AND Active = 1;", connection);
+            }
             dataAdapter.SelectCommand.Parameters.AddWithValue("@groupId", groupId);
             connection.Close();
             return dataAdapter;
@@ -94,11 +115,20 @@ namespace tthk_contacts
         /// Receives students' records, which suitable by searchName.
         /// </summary>
         /// <param name="searchName">Full or name's part to search</param>
+        /// <param name="showInactive">To show inactive students?</param>
         /// <returns>SqlDataAdapter with students' records.</returns>
-        internal SqlDataAdapter GetStudents(string searchName)
+        internal SqlDataAdapter GetStudents(string searchName, bool showInactive)
         {
             connection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name;", connection);
+            SqlDataAdapter dataAdapter;
+            if (showInactive)
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name;", connection);
+            }
+            else
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name AND Active = 1;", connection);
+            }
             dataAdapter.SelectCommand.Parameters.AddWithValue("@name", "%" + searchName + "%");
             connection.Close();
             return dataAdapter;
@@ -109,11 +139,20 @@ namespace tthk_contacts
         /// </summary>
         /// <param name="searchName">Full or name's part to search</param>
         /// <param name="groupId">Group to search ID</param>
+        /// <param name="showInactive">To show inactive students?</param>
         /// <returns>SqlDataAdapter with students' records.</returns>
-        internal SqlDataAdapter GetStudents(string searchName, int groupId)
+        internal SqlDataAdapter GetStudents(string searchName, int groupId, bool showInactive)
         {
             connection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE name LIKE @name AND groupId = @groupId;", connection);
+            SqlDataAdapter dataAdapter;
+            if (showInactive)
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId AND Active = 1 AND name LIKE @name;", connection);
+            }
+            else
+            {
+                dataAdapter = new SqlDataAdapter("SELECT * FROM Contacts WHERE groupId = @groupId AND name LIKE @name;", connection);
+            }
             dataAdapter.SelectCommand.Parameters.AddWithValue("@name", "%" + searchName + "%");
             dataAdapter.SelectCommand.Parameters.AddWithValue("@groupId", groupId);
             connection.Close();
@@ -123,10 +162,15 @@ namespace tthk_contacts
         /// <summary>
         /// Receives whole parents' records from database.
         /// </summary>
+        /// <param name="id">Student's id</param>
         /// <returns>SqlDataAdapter with parents' records.</returns>
-        internal SqlDataAdapter GetParents()
+        internal SqlDataAdapter GetParentsByStudent(int id)
         {
-            throw new NotImplementedException();
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Parents WHERE childrenId = @childrenId", connection);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@childrenId", id);
+            connection.Close();
+            return dataAdapter;
         }
 
         /// <summary>
@@ -139,18 +183,20 @@ namespace tthk_contacts
             SqlCommand command;
             if (student.GroupId > 0)
             {
-                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, GroupId, DateOfBirth) VALUES (@name, @phone, @email, @picture, @groupId, @dateOfBirth)", connection);
+                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, GroupId, DateOfBirth, Scholarship, Active) VALUES (@name, @phone, @email, @picture, @groupId, @dateOfBirth, @scholarship, @active)", connection);
                 command.Parameters.AddWithValue("@groupId", student.GroupId);
             }
             else
             {
-                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, DateOfBirth) VALUES (@name, @phone, @email, @picture, @dateOfBirth)", connection);
+                command = new SqlCommand("INSERT INTO Contacts(Name, Phone, Email, Picture, DateOfBirth, Scholarship, Active) VALUES (@name, @phone, @email, @picture, @dateOfBirth, @scholarship, @active)", connection);
             }
             command.Parameters.AddWithValue("@name", student.Name);
             command.Parameters.AddWithValue("@phone", student.Phone);
             command.Parameters.AddWithValue("@email", student.Email);
             command.Parameters.AddWithValue("@picture", student.PicturePath);
             command.Parameters.AddWithValue("@dateOfBirth", student.DateOfBirth);
+            command.Parameters.AddWithValue("@scholarship", student.Scholarship);
+            command.Parameters.AddWithValue("@active", student.Active);
             command.ExecuteNonQuery();
             connection.Close();
         }
@@ -161,7 +207,8 @@ namespace tthk_contacts
         /// <param name="parent">Parent</param>
         internal void AddParent(Parent parent)
         {
-            throw new NotImplementedException();
+            connection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO Parents(Name, Phone, Email, Active, ChildrenId)");
         }
 
         /// <summary>
@@ -209,13 +256,24 @@ namespace tthk_contacts
         internal void UpdateStudent(Student student)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE Contacts SET Name = @name, Phone = @phone, Email = @email, Picture = @picture, GroupId = @groupId WHERE Id = @id", connection);
+            SqlCommand command = new SqlCommand("UPDATE Contacts SET Name = @name, " +
+                                                "Phone = @phone, " +
+                                                "Email = @email, " +
+                                                "Picture = @picture, " +
+                                                "Scholarship = @scholarship, " +
+                                                "GroupId = @groupId," +
+                                                "DateOfBirth = @dateOfBirth, " +
+                                                "Active = @active " +
+                                                "WHERE Id = @id", connection);
             command.Parameters.AddWithValue("@id", student.Id);
             command.Parameters.AddWithValue("@name", student.Name);
             command.Parameters.AddWithValue("@phone", student.Phone);
             command.Parameters.AddWithValue("@email", student.Email);
             command.Parameters.AddWithValue("@picture", student.PicturePath);
             command.Parameters.AddWithValue("@groupId", student.GroupId);
+            command.Parameters.AddWithValue("@scholarship", student.Scholarship);
+            command.Parameters.AddWithValue("@dateOfBirth", student.DateOfBirth);
+            command.Parameters.AddWithValue("@active", student.Active);
             command.ExecuteNonQuery();
             connection.Close();
         }

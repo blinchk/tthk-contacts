@@ -109,6 +109,7 @@ namespace tthk_contacts
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.label1);
             this.Name = "AuthorizationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sisselogimine";
             this.ResumeLayout(false);
             this.PerformLayout();

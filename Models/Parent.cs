@@ -10,7 +10,7 @@ namespace tthk_contacts.Models
     /// <summary>
     /// Class for parent record.
     /// </summary>
-    class Parent : Contact
+    public class Parent : Contact
     {
         public int ChildrenId { get; set; }
     }

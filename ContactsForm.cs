@@ -22,12 +22,13 @@ namespace tthk_contacts
         }
 
         private int SelectedGroup => groupComboBox.SelectedIndex;
+        private bool ShowInactives => showInactivesCheckbox.Checked;
 
         private void DisplayData()
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.GetStudents();
+            adapter = dataService.GetStudents(ShowInactives);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -36,7 +37,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.GetStudents(searchName);
+            adapter = dataService.GetStudents(searchName, ShowInactives);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -45,7 +46,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.GetStudents(groupId);
+            adapter = dataService.GetStudents(groupId, ShowInactives);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -54,7 +55,7 @@ namespace tthk_contacts
         {
             var dataService = new DataService();
             var table = new DataTable();
-            adapter = dataService.GetStudents(searchName, groupId);
+            adapter = dataService.GetStudents(searchName, groupId, ShowInactives);
             adapter.Fill(table);
             contactsDataGridView.DataSource = table;
         }
@@ -76,13 +77,15 @@ namespace tthk_contacts
             contactPictureBox.Image = null;
             pictureTextBox.Text = "";
             scholarshipCheckbox.Checked = false;
-            contactComboBox.SelectedIndex = 0;
+            contactGroupComboBox.SelectedIndex = 0;
+            dateOfBirthPicker.Value = DateTime.Now;
+            activeCheckbox.Checked = true;
         }
 
         private void ClearGroups()
         {
             groupComboBox.Items.Clear();
-            contactComboBox.Items.Clear();
+            contactGroupComboBox.Items.Clear();
         }
 
         private void RequestGroups()
@@ -90,11 +93,11 @@ namespace tthk_contacts
             ClearGroups();
             var dataService = new DataService();
             groupComboBox.Items.Add("Kõik");
-            contactComboBox.Items.Add("Pole");
+            contactGroupComboBox.Items.Add("Pole");
             foreach (var group in dataService.GetGroups())
             {
                 groupComboBox.Items.Add(group);
-                contactComboBox.Items.Add(group);
+                contactGroupComboBox.Items.Add(group);
             }
         }
 
@@ -112,17 +115,50 @@ namespace tthk_contacts
             ClearData();
         }
 
-        private void SelectedContactData(int row)
+        private void UpdateData()
         {
-            id = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[0].Value.ToString());
-            nameTextBox.Text = contactsDataGridView.Rows[row].Cells[1].Value.ToString();
-            phoneTextBox.Text = contactsDataGridView.Rows[row].Cells[2].Value.ToString();
-            emailTextBox.Text = contactsDataGridView.Rows[row].Cells[3].Value.ToString();
-            DisplayContactPicture(contactsDataGridView.Rows[row].Cells[4].Value.ToString());
-            pictureTextBox.Text = contactsDataGridView.Rows[row].Cells[4].Value.ToString();
-            contactComboBox.SelectedIndex = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[5].Value.ToString());
-            scholarshipCheckbox.Checked = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[6].Value);
-            dateOfBirthPicker.Value = Convert.ToDateTime(contactsDataGridView.Rows[row].Cells[7].Value);
+            var searchText = searchTextBox.Text;
+            if (ValidateTextBox(searchTextBox))
+            {
+                if (SelectedGroup <= 0)
+                    DisplayData(searchText);
+                else
+                    DisplayData(searchText, SelectedGroup);
+            }
+            else
+            {
+                DisplayData();
+            }
+        }
+
+        private void SelectedContactDataFromTable(int row)
+        {
+            currentStudent = new Student()
+            {
+                Id = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[0].Value.ToString()),
+                Name = contactsDataGridView.Rows[row].Cells[1].Value.ToString(),
+                Phone = contactsDataGridView.Rows[row].Cells[2].Value.ToString(),
+                Email = contactsDataGridView.Rows[row].Cells[3].Value.ToString(),
+                PicturePath = contactsDataGridView.Rows[row].Cells[4].Value.ToString(),
+                GroupId = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[5].Value.ToString()),
+                Scholarship = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[6].Value),
+                DateOfBirth = Convert.ToDateTime(contactsDataGridView.Rows[row].Cells[7].Value),
+                Active = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[8].Value)
+            };
+        }
+
+        private void FillFields(Student student)
+        {
+            id = student.Id;
+            nameTextBox.Text = student.Name;
+            phoneTextBox.Text = student.Phone;
+            emailTextBox.Text = student.Email;
+            DisplayContactPicture(student.PicturePath);
+            pictureTextBox.Text = student.PicturePath;
+            contactGroupComboBox.SelectedIndex = student.GroupId;
+            scholarshipCheckbox.Checked = student.Scholarship;
+            dateOfBirthPicker.Value = student.DateOfBirth;
+            activeCheckbox.Checked = student.Active;
         }
 
         private void contactPictureBox_Click(object sender, EventArgs e)
@@ -139,24 +175,13 @@ namespace tthk_contacts
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            var searchText = searchTextBox.Text;
-            if (ValidateTextBox(searchTextBox))
-            {
-                if (SelectedGroup <= 0)
-                    DisplayData(searchText);
-                else
-                    DisplayData(searchText, SelectedGroup);
-            }
-            else
-            {
-                DisplayData();
-            }
+            UpdateData();
         }
 
         private bool ValidateTextBox(TextBox textBox)
         {
             var dataService = new DataService();
-            return dataService.ValidateText(textBox.Text);
+            return !String.IsNullOrEmpty(textBox.Text);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -165,13 +190,15 @@ namespace tthk_contacts
             {
                 currentStudent = new Student
                 {
+                    Id = id,
                     Name = nameTextBox.Text,
                     Phone = phoneTextBox.Text,
                     Email = emailTextBox.Text,
                     PicturePath = pictureTextBox.Text,
                     Scholarship = scholarshipCheckbox.Checked,
-                    GroupId = groupComboBox.SelectedIndex,
-                    DateOfBirth = dateOfBirthPicker.Value
+                    GroupId = contactGroupComboBox.SelectedIndex,
+                    DateOfBirth = dateOfBirthPicker.Value,
+                    Active = activeCheckbox.Checked
                 };
                 var dataService = new DataService();
                 dataService.AddStudent(currentStudent);
@@ -184,7 +211,8 @@ namespace tthk_contacts
         {
             try
             {
-                SelectedContactData(e.RowIndex);
+                SelectedContactDataFromTable(e.RowIndex);
+                FillFields(currentStudent);
             }
             catch (FormatException exception)
             {
@@ -226,7 +254,9 @@ namespace tthk_contacts
                     Email = emailTextBox.Text,
                     PicturePath = pictureTextBox.Text,
                     Scholarship = scholarshipCheckbox.Checked,
-                    GroupId = contactComboBox.SelectedIndex
+                    GroupId = contactGroupComboBox.SelectedIndex,
+                    DateOfBirth = dateOfBirthPicker.Value,
+                    Active = activeCheckbox.Checked
                 };
                 var dataService = new DataService();
                 dataService.UpdateStudent(currentStudent);
@@ -248,10 +278,6 @@ namespace tthk_contacts
         private void ClearFieldsButton_Click(object sender, EventArgs e)
         {
             ClearData();
-        }
-
-        private void ScholarshipCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
         }
 
         private void SendMessageButton_Click(object sender, EventArgs e)
@@ -283,6 +309,18 @@ namespace tthk_contacts
                 dataService.DeleteGroup(groupComboBox.SelectedText);
                 RequestGroups();
             }
+        }
+
+        private void parentsButton_Click(object sender, EventArgs e)
+        {
+            var parentsForm = new ParentsForm(currentStudent);
+            parentsForm.Show();
+            parentsForm.Focus();
+        }
+
+        private void showInactivesCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateData();
         }
     }
 }
