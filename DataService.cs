@@ -208,7 +208,12 @@ namespace tthk_contacts
         internal void AddParent(Parent parent)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Parents(Name, Phone, Email, Active, ChildrenId)");
+            SqlCommand command = new SqlCommand("INSERT INTO Parents(Name, Phone, Email, Active, ChildrenId) VALUES (@name, @phone, @email, @active, @childrenId);", connection);
+            command.Parameters.AddWithValue("@name", parent.Name);
+            command.Parameters.AddWithValue("@phone", parent.Phone);
+            command.Parameters.AddWithValue("@email", parent.Email);
+            command.Parameters.AddWithValue("@active", parent.Active);
+            command.Parameters.AddWithValue("@childrenId", parent.ChildrenId);
         }
 
         /// <summary>
@@ -306,7 +311,11 @@ namespace tthk_contacts
         /// <param name="id">Parent ID</param>
         internal void DeleteParent(int id)
         {
-            throw new NotImplementedException();
+            connection.Open();
+            SqlCommand command = new SqlCommand("DELETE FROM Parents WHERE Id = @id;", connection);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
 
         /// <summary>
