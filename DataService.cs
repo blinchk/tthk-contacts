@@ -290,6 +290,7 @@ namespace tthk_contacts
                                          "ChildrenId = @childrenId, " +
                                          "Active = @active", connection);
             command.Parameters.AddWithValue("@id", parent.Id);
+            command.Parameters.AddWithValue("@name", parent.Name);
             command.Parameters.AddWithValue("@phone", parent.Phone);
             command.Parameters.AddWithValue("@email", parent.Email);
             command.Parameters.AddWithValue("@childrenId", parent.ChildrenId);
