@@ -77,6 +77,7 @@ namespace tthk_contacts
             this.parentsDataGridView.RowTemplate.Height = 28;
             this.parentsDataGridView.Size = new System.Drawing.Size(624, 386);
             this.parentsDataGridView.TabIndex = 0;
+            this.parentsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.parentsDataGridView_RowHeaderMouseClick);
             // 
             // nameTextBox
             // 
@@ -151,6 +152,7 @@ namespace tthk_contacts
             this.addParentButton.TabIndex = 4;
             this.addParentButton.Text = "Lisa";
             this.addParentButton.UseVisualStyleBackColor = true;
+            this.addParentButton.Click += new System.EventHandler(this.addParentButton_Click);
             // 
             // changeParentButton
             // 
@@ -160,6 +162,7 @@ namespace tthk_contacts
             this.changeParentButton.TabIndex = 4;
             this.changeParentButton.Text = "Muuda";
             this.changeParentButton.UseVisualStyleBackColor = true;
+            this.changeParentButton.Click += new System.EventHandler(this.changeParentButton_Click);
             // 
             // deleteParentButton
             // 
@@ -169,6 +172,7 @@ namespace tthk_contacts
             this.deleteParentButton.TabIndex = 4;
             this.deleteParentButton.Text = "Kustuta";
             this.deleteParentButton.UseVisualStyleBackColor = true;
+            this.deleteParentButton.Click += new System.EventHandler(this.deleteParentButton_Click);
             // 
             // dataPermissionCheckBox
             // 
@@ -203,6 +207,7 @@ namespace tthk_contacts
             this.sendMessageButton.TabIndex = 4;
             this.sendMessageButton.Text = "Saada sõnum";
             this.sendMessageButton.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Click += new System.EventHandler(this.sendMessageButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 

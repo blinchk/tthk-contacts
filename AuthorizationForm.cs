@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tthk_contacts
@@ -19,12 +12,12 @@ namespace tthk_contacts
 
         private void RequestAuthorize()
         {
-            if (!String.IsNullOrEmpty(loginTextBox.Text) && !String.IsNullOrEmpty(passwordTextBox.Text))
+            if (!string.IsNullOrEmpty(loginTextBox.Text) && !string.IsNullOrEmpty(passwordTextBox.Text))
             {
-                bool success = Authorize(loginTextBox.Text, passwordTextBox.Text);
+                var success = Authorize(loginTextBox.Text, passwordTextBox.Text);
                 if (success)
                 {
-                    ContactsForm contactsForm = new ContactsForm();
+                    var contactsForm = new ContactsForm();
                     Hide();
                     contactsForm.ShowDialog();
                     Close();
@@ -43,10 +36,7 @@ namespace tthk_contacts
         private bool Authorize(string login, string password)
         {
             var dataService = new DataService();
-            if (dataService.GetPassword(login) == password)
-            {
-                return true;
-            }
+            if (dataService.GetPassword(login) == password) return true;
 
             return false;
         }

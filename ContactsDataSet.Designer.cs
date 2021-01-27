@@ -2084,8 +2084,10 @@ namespace tthk_contacts.ContactsDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Contacts] ([Name], [Phone], [Email], [Picture], [GroupId], [Scholarship], [Active], [DateOfBirth]) VALUES (@Name, @Phone, @Email, @Picture, @GroupId, @Scholarship, @Active, @DateOfBirth);
-SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirth FROM Contacts WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+                      INSERT INTO [dbo].[Contacts] ([Name], [Phone], [Email], [Picture], [GroupId], [Scholarship], [Active], [DateOfBirth]) VALUES (@Name, @Phone, @Email, @Picture, @GroupId, @Scholarship, @Active, @DateOfBirth);
+                      SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirth FROM Contacts WHERE (Id = SCOPE_IDENTITY())
+                    ";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2097,8 +2099,10 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirt
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfBirth", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Contacts] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Picture] = @Picture, [GroupId] = @GroupId, [Scholarship] = @Scholarship, [Active] = @Active, [DateOfBirth] = @DateOfBirth WHERE (([Id] = @Original_Id) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_GroupId = 1 AND [GroupId] IS NULL) OR ([GroupId] = @Original_GroupId)) AND ((@IsNull_Scholarship = 1 AND [Scholarship] IS NULL) OR ([Scholarship] = @Original_Scholarship)) AND ((@IsNull_Active = 1 AND [Active] IS NULL) OR ([Active] = @Original_Active)) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)));
-SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirth FROM Contacts WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"
+                      UPDATE [dbo].[Contacts] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Picture] = @Picture, [GroupId] = @GroupId, [Scholarship] = @Scholarship, [Active] = @Active, [DateOfBirth] = @DateOfBirth WHERE (([Id] = @Original_Id) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_GroupId = 1 AND [GroupId] IS NULL) OR ([GroupId] = @Original_GroupId)) AND ((@IsNull_Scholarship = 1 AND [Scholarship] IS NULL) OR ([Scholarship] = @Original_Scholarship)) AND ((@IsNull_Active = 1 AND [Active] IS NULL) OR ([Active] = @Original_Active)) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)));
+                      SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirth FROM Contacts WHERE (Id = @Id)
+                    ";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2646,16 +2650,18 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirt
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Groups] ([Id], [Code]) VALUES (@Id, @Code);\nSELECT Id, Code FR" +
-                "OM Groups WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "\r\n                      INSERT INTO [dbo].[Groups] ([Id], [Code]) VALUES (@Id, @C" +
+                "ode);\r\n                      SELECT Id, Code FROM Groups WHERE (Id = @Id)\r\n     " +
+                "               ";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Groups] SET [Id] = @Id, [Code] = @Code WHERE (([Id] = @Original_Id)" +
-                " AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)));\nSELE" +
-                "CT Id, Code FROM Groups WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"
+                      UPDATE [dbo].[Groups] SET [Id] = @Id, [Code] = @Code WHERE (([Id] = @Original_Id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)));
+                      SELECT Id, Code FROM Groups WHERE (Id = @Id)
+                    ";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2983,9 +2989,10 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirt
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChildrenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChildrenId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [PARENTS] ([Name], [Phone], [Email], [Active], [ChildrenId]) VALUES (" +
-                "@Name, @Phone, @Email, @Active, @ChildrenId);\r\nSELECT Id, Name, Phone, Email, Ac" +
-                "tive, ChildrenId FROM Parents WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+                      INSERT INTO [PARENTS] ([Name], [Phone], [Email], [Active], [ChildrenId]) VALUES (@Name, @Phone, @Email, @Active, @ChildrenId);
+                      SELECT Id, Name, Phone, Email, Active, ChildrenId FROM Parents WHERE (Id = SCOPE_IDENTITY())
+                    ";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2994,8 +3001,10 @@ SELECT Id, Name, Phone, Email, Picture, GroupId, Scholarship, Active, DateOfBirt
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChildrenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChildrenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PARENTS] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Active] = @Active, [ChildrenId] = @ChildrenId WHERE (([Id] = @Original_Id) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Active = 1 AND [Active] IS NULL) OR ([Active] = @Original_Active)) AND ((@IsNull_ChildrenId = 1 AND [ChildrenId] IS NULL) OR ([ChildrenId] = @Original_ChildrenId)));
-SELECT Id, Name, Phone, Email, Active, ChildrenId FROM Parents WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"
+                      UPDATE [PARENTS] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Active] = @Active, [ChildrenId] = @ChildrenId WHERE (([Id] = @Original_Id) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Active = 1 AND [Active] IS NULL) OR ([Active] = @Original_Active)) AND ((@IsNull_ChildrenId = 1 AND [ChildrenId] IS NULL) OR ([ChildrenId] = @Original_ChildrenId)));
+                      SELECT Id, Name, Phone, Email, Active, ChildrenId FROM Parents WHERE (Id = @Id)
+                    ";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -10,7 +10,6 @@ namespace tthk_contacts
     public partial class ContactsForm : Form
     {
         private SqlDataAdapter adapter;
-        private SqlCommand command;
         private Student currentStudent;
         private int id;
 
@@ -133,7 +132,7 @@ namespace tthk_contacts
 
         private void SelectedContactDataFromTable(int row)
         {
-            currentStudent = new Student()
+            currentStudent = new Student
             {
                 Id = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[0].Value.ToString()),
                 Name = contactsDataGridView.Rows[row].Cells[1].Value.ToString(),
@@ -163,8 +162,10 @@ namespace tthk_contacts
 
         private void contactPictureBox_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Images (*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Images (*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp"
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var fileName = openFileDialog.FileName;
@@ -180,8 +181,7 @@ namespace tthk_contacts
 
         private bool ValidateTextBox(TextBox textBox)
         {
-            var dataService = new DataService();
-            return !String.IsNullOrEmpty(textBox.Text);
+            return !string.IsNullOrEmpty(textBox.Text);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -190,7 +190,6 @@ namespace tthk_contacts
             {
                 currentStudent = new Student
                 {
-                    Id = id,
                     Name = nameTextBox.Text,
                     Phone = phoneTextBox.Text,
                     Email = emailTextBox.Text,
@@ -214,7 +213,7 @@ namespace tthk_contacts
                 SelectedContactDataFromTable(e.RowIndex);
                 FillFields(currentStudent);
             }
-            catch (FormatException exception)
+            catch (FormatException)
             {
                 MessageBox.Show("Valitud rida on tühi.");
                 ClearData();
@@ -227,7 +226,7 @@ namespace tthk_contacts
             {
                 if (ValidateTextBox(pictureTextBox)) DisplayContactPicture(pictureTextBox.Text);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
             }
         }
@@ -259,7 +258,7 @@ namespace tthk_contacts
                     Active = activeCheckbox.Checked
                 };
                 var dataService = new DataService();
-                dataService.UpdateStudent(currentStudent);
+                dataService.Update(currentStudent);
                 SelectedGroupData();
             }
         }
@@ -269,7 +268,7 @@ namespace tthk_contacts
             if (id != 0)
             {
                 var dataService = new DataService();
-                dataService.DeleteContact(id);
+                dataService.DeleteStudent(id);
                 ClearData();
                 SelectedGroupData();
             }
@@ -290,7 +289,7 @@ namespace tthk_contacts
         {
             if (ValidateTextBox(newGroupCodeTextBox))
             {
-                string newGroupCode = newGroupCodeTextBox.Text.Trim();
+                var newGroupCode = newGroupCodeTextBox.Text.Trim();
                 if (!groupComboBox.Items.Contains(newGroupCode))
                 {
                     var dataService = new DataService();
@@ -313,6 +312,7 @@ namespace tthk_contacts
 
         private void parentsButton_Click(object sender, EventArgs e)
         {
+            if (currentStudent == null) return;
             var parentsForm = new ParentsForm(currentStudent);
             parentsForm.Show();
             parentsForm.Focus();

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tthk_contacts.Models
 {
     /// <summary>
-    /// Class for student record.
+    ///     Class for student record.
     /// </summary>
     public class Student : Contact
     {

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tthk_contacts
+namespace tthk_contacts.Models
 {
-    class Message
+    internal class Message
     {
         public const string Sender = "contacts@laus19.thkit.ee";
         public const string Password = "siinSaabTeavitadaKeegi";
@@ -21,23 +19,17 @@ namespace tthk_contacts
         {
             try
             {
-                MailMessage mailMessage = new MailMessage();
-                SmtpClient smtpClient = new SmtpClient("smtp.zone.eu", 587)
+                var mailMessage = new MailMessage();
+                var smtpClient = new SmtpClient("smtp.zone.eu", 587)
                 {
-                    Credentials = new System.Net.NetworkCredential(Sender, Password),
+                    Credentials = new NetworkCredential(Sender, Password),
                     EnableSsl = true
                 };
                 mailMessage.From = new MailAddress(Sender, "Õppurite teavitamine");
-                foreach (var recipent in Recipients)
-                {
-                    mailMessage.To.Add(recipent);
-                }
+                foreach (var recipent in Recipients) mailMessage.To.Add(recipent);
                 mailMessage.Subject = Subject;
                 mailMessage.Body = Body;
-                if (Attachment != null)
-                {
-                    mailMessage.Attachments.Add(Attachment);
-                }
+                if (Attachment != null) mailMessage.Attachments.Add(Attachment);
                 smtpClient.Send(mailMessage);
             }
             catch (Exception e)

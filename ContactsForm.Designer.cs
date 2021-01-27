@@ -631,7 +631,7 @@
         private System.Windows.Forms.BindingSource contactsDataSetBindingSource;
         private ContactsDataSet contactsDataSet;
         private System.Windows.Forms.BindingSource contactsBindingSource;
-        private ContactsDataSetTableAdapters.ContactsTableAdapter contactsTableAdapter;
+        private tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter contactsTableAdapter;
         private System.Windows.Forms.Label pictureLinkLabel;
         private System.Windows.Forms.TextBox pictureTextBox;
         private System.Windows.Forms.Button addPictureLinkButton;
