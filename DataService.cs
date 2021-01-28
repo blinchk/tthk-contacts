@@ -342,6 +342,7 @@ namespace tthk_contacts
             return null;
         }
 
+        /// <param name="student">Student to change data permission.</param>
         internal void ChangeDataPermission(Student student)
         {
             connection.Open();
