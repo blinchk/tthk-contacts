@@ -123,6 +123,9 @@
     <None Include="AppData\Eritoetuse avaldus.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="AppData\Koolilõunatoetuse avaldus.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="ContactsDataSet.xsc">
       <DependentUpon>ContactsDataSet.xsd</DependentUpon>
     </None>

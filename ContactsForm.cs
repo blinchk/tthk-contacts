@@ -199,7 +199,9 @@ namespace tthk_contacts
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (ValidateTextBox(nameTextBox))
+            if (ValidateTextBox(nameTextBox) &&
+                ValidateTextBox(phoneTextBox) &&
+                ValidateTextBox(emailTextBox))
             {
                 currentStudent = new Student
                 {

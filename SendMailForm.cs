@@ -44,6 +44,8 @@ namespace tthk_contacts
             };
             if (addScholarshipFileCheckbox.Checked)
                 message.Attachment = new Attachment(@"AppData\Eritoetuse avaldus.pdf");
+            if (addLunchscholarshipCheckBox.Checked)
+                message.Attachment = new Attachment(@"AppData\Koolilõunatoetuse avaldus.pdf");
             message.Send();
             Close();
         }

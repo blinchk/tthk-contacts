@@ -93,7 +93,9 @@ namespace tthk_contacts
 
         private void addParentButton_Click(object sender, EventArgs e)
         {
-            if (ValidateTextBox(nameTextBox))
+            if (ValidateTextBox(nameTextBox) &&
+                ValidateTextBox(phoneTextBox) &&
+                ValidateTextBox(emailTextBox))
             {
                 currentParent = new Parent
                 {
@@ -112,7 +114,10 @@ namespace tthk_contacts
 
         private void changeParentButton_Click(object sender, EventArgs e)
         {
-            if (ValidateTextBox(nameTextBox) && id != 0)
+            if (ValidateTextBox(nameTextBox) && 
+                ValidateTextBox(emailTextBox) && 
+                ValidateTextBox(phoneTextBox) &&
+                id != 0)
             {
                 currentParent = new Parent
                 {
