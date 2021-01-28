@@ -154,7 +154,8 @@ namespace tthk_contacts
                 GroupId = Convert.ToInt32(contactsDataGridView.Rows[row].Cells[5].Value.ToString()),
                 Scholarship = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[6].Value),
                 DateOfBirth = Convert.ToDateTime(contactsDataGridView.Rows[row].Cells[7].Value),
-                Active = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[8].Value)
+                Active = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[8].Value),
+                DataPermission = Convert.ToBoolean(contactsDataGridView.Rows[row].Cells[9].Value)
             };
         }
 
@@ -209,7 +210,8 @@ namespace tthk_contacts
                     Scholarship = scholarshipCheckbox.Checked,
                     GroupId = contactGroupComboBox.SelectedIndex,
                     DateOfBirth = dateOfBirthPicker.Value,
-                    Active = activeCheckbox.Checked
+                    Active = activeCheckbox.Checked,
+                    DataPermission = true
                 };
                 var dataService = new DataService();
                 dataService.AddStudent(currentStudent);

@@ -341,5 +341,15 @@ namespace tthk_contacts
 
             return null;
         }
+
+        internal void ChangeDataPermission(Student student)
+        {
+            connection.Open();
+            var command = new SqlCommand("UPDATE Contacts SET DataPermission = @dataPermission WHERE Id = @id", connection);
+            command.Parameters.AddWithValue("@dataPermission", student.DataPermission);
+            command.Parameters.AddWithValue("@id", student.Id);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

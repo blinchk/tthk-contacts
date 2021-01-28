@@ -63,19 +63,20 @@
             this.parentsButton = new System.Windows.Forms.Button();
             this.activeCheckbox = new System.Windows.Forms.CheckBox();
             this.showInactivesCheckbox = new System.Windows.Forms.CheckBox();
-            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
+            this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactsTableAdapter = new tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
-            this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsTableAdapter = new tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter();
+            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DataPermission = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -86,59 +87,53 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 130);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(62, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nimi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(140, 127);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nameTextBox.Location = new System.Drawing.Point(93, 83);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(250, 26);
+            this.nameTextBox.Size = new System.Drawing.Size(168, 20);
             this.nameTextBox.TabIndex = 3;
             this.nameTextBox.Tag = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 166);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(47, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 20);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Telefon";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(140, 163);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.phoneTextBox.Location = new System.Drawing.Point(93, 106);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(250, 26);
+            this.phoneTextBox.Size = new System.Drawing.Size(168, 20);
             this.phoneTextBox.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 202);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(52, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "E-post";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(140, 199);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.emailTextBox.Location = new System.Drawing.Point(93, 129);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(250, 26);
+            this.emailTextBox.Size = new System.Drawing.Size(168, 20);
             this.emailTextBox.TabIndex = 5;
             // 
             // groupComboBox
@@ -146,10 +141,9 @@
             this.groupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.groupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(1085, 82);
-            this.groupComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupComboBox.Location = new System.Drawing.Point(723, 53);
             this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(206, 28);
+            this.groupComboBox.Size = new System.Drawing.Size(139, 21);
             this.groupComboBox.TabIndex = 14;
             this.groupComboBox.Text = "Kõik";
             this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
@@ -157,10 +151,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1025, 85);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(683, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 20);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Rühm";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -171,10 +164,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contactPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.contactPictureBox.Location = new System.Drawing.Point(171, 273);
-            this.contactPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contactPictureBox.Location = new System.Drawing.Point(114, 177);
             this.contactPictureBox.Name = "contactPictureBox";
-            this.contactPictureBox.Size = new System.Drawing.Size(174, 145);
+            this.contactPictureBox.Size = new System.Drawing.Size(116, 94);
             this.contactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.contactPictureBox.TabIndex = 3;
             this.contactPictureBox.TabStop = false;
@@ -183,28 +175,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(79, 67);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(53, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Otsing";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(144, 65);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTextBox.Location = new System.Drawing.Point(96, 42);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(250, 26);
+            this.searchTextBox.Size = new System.Drawing.Size(168, 20);
             this.searchTextBox.TabIndex = 0;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(140, 652);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addButton.Location = new System.Drawing.Point(93, 424);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(254, 46);
+            this.addButton.Size = new System.Drawing.Size(169, 30);
             this.addButton.TabIndex = 9;
             this.addButton.Text = "Lisa";
             this.addButton.UseVisualStyleBackColor = true;
@@ -212,10 +201,9 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(404, 652);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updateButton.Location = new System.Drawing.Point(269, 424);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(252, 46);
+            this.updateButton.Size = new System.Drawing.Size(168, 30);
             this.updateButton.TabIndex = 10;
             this.updateButton.Text = "Muuda";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -223,10 +211,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(664, 652);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteButton.Location = new System.Drawing.Point(443, 424);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(252, 46);
+            this.deleteButton.Size = new System.Drawing.Size(168, 30);
             this.deleteButton.TabIndex = 11;
             this.deleteButton.Text = "Kustuta";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -234,10 +221,9 @@
             // 
             // previousButton
             // 
-            this.previousButton.Location = new System.Drawing.Point(920, 652);
-            this.previousButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.previousButton.Location = new System.Drawing.Point(613, 424);
             this.previousButton.Name = "previousButton";
-            this.previousButton.Size = new System.Drawing.Size(117, 46);
+            this.previousButton.Size = new System.Drawing.Size(78, 30);
             this.previousButton.TabIndex = 12;
             this.previousButton.Text = "<<";
             this.previousButton.UseVisualStyleBackColor = true;
@@ -245,10 +231,9 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(1045, 652);
-            this.nextButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nextButton.Location = new System.Drawing.Point(697, 424);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(117, 46);
+            this.nextButton.Size = new System.Drawing.Size(78, 30);
             this.nextButton.TabIndex = 13;
             this.nextButton.Text = ">>";
             this.nextButton.UseVisualStyleBackColor = true;
@@ -256,10 +241,9 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(402, 58);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchButton.Location = new System.Drawing.Point(268, 38);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(98, 39);
+            this.searchButton.Size = new System.Drawing.Size(65, 25);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Otsi";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -279,43 +263,40 @@
             this.groupIdDataGridViewTextBoxColumn,
             this.Scholarship,
             this.DateOfBirth,
-            this.Active});
+            this.Active,
+            this.DataPermission});
             this.contactsDataGridView.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.contactsBindingSource, "Id", true));
             this.contactsDataGridView.DataSource = this.contactsBindingSource;
-            this.contactsDataGridView.Location = new System.Drawing.Point(402, 123);
-            this.contactsDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contactsDataGridView.Location = new System.Drawing.Point(268, 80);
             this.contactsDataGridView.Name = "contactsDataGridView";
             this.contactsDataGridView.ReadOnly = true;
             this.contactsDataGridView.RowHeadersWidth = 62;
-            this.contactsDataGridView.Size = new System.Drawing.Size(889, 458);
+            this.contactsDataGridView.Size = new System.Drawing.Size(593, 298);
             this.contactsDataGridView.TabIndex = 15;
             this.contactsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ContactsDataGridView_RowHeaderMouseClick);
             // 
             // pictureLinkLabel
             // 
             this.pictureLinkLabel.AutoSize = true;
-            this.pictureLinkLabel.Location = new System.Drawing.Point(68, 502);
-            this.pictureLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pictureLinkLabel.Location = new System.Drawing.Point(45, 326);
             this.pictureLinkLabel.Name = "pictureLinkLabel";
-            this.pictureLinkLabel.Size = new System.Drawing.Size(64, 20);
+            this.pictureLinkLabel.Size = new System.Drawing.Size(45, 13);
             this.pictureLinkLabel.TabIndex = 0;
             this.pictureLinkLabel.Text = "Pildi link";
             this.pictureLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureTextBox
             // 
-            this.pictureTextBox.Location = new System.Drawing.Point(140, 499);
-            this.pictureTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureTextBox.Location = new System.Drawing.Point(93, 324);
             this.pictureTextBox.Name = "pictureTextBox";
-            this.pictureTextBox.Size = new System.Drawing.Size(250, 26);
+            this.pictureTextBox.Size = new System.Drawing.Size(168, 20);
             this.pictureTextBox.TabIndex = 7;
             // 
             // addPictureLinkButton
             // 
-            this.addPictureLinkButton.Location = new System.Drawing.Point(140, 535);
-            this.addPictureLinkButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addPictureLinkButton.Location = new System.Drawing.Point(93, 348);
             this.addPictureLinkButton.Name = "addPictureLinkButton";
-            this.addPictureLinkButton.Size = new System.Drawing.Size(254, 46);
+            this.addPictureLinkButton.Size = new System.Drawing.Size(169, 30);
             this.addPictureLinkButton.TabIndex = 8;
             this.addPictureLinkButton.Text = "Lisa pilt";
             this.addPictureLinkButton.UseVisualStyleBackColor = true;
@@ -324,10 +305,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 238);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(52, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 20);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Rühm";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -337,19 +317,17 @@
             this.contactGroupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.contactGroupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.contactGroupComboBox.FormattingEnabled = true;
-            this.contactGroupComboBox.Location = new System.Drawing.Point(140, 235);
-            this.contactGroupComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contactGroupComboBox.Location = new System.Drawing.Point(93, 153);
             this.contactGroupComboBox.Name = "contactGroupComboBox";
-            this.contactGroupComboBox.Size = new System.Drawing.Size(250, 28);
+            this.contactGroupComboBox.Size = new System.Drawing.Size(168, 21);
             this.contactGroupComboBox.TabIndex = 6;
             this.contactGroupComboBox.Text = "Pole";
             // 
             // clearFieldsButton
             // 
-            this.clearFieldsButton.Location = new System.Drawing.Point(140, 591);
-            this.clearFieldsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.clearFieldsButton.Location = new System.Drawing.Point(93, 384);
             this.clearFieldsButton.Name = "clearFieldsButton";
-            this.clearFieldsButton.Size = new System.Drawing.Size(254, 46);
+            this.clearFieldsButton.Size = new System.Drawing.Size(169, 30);
             this.clearFieldsButton.TabIndex = 9;
             this.clearFieldsButton.Text = "Kustuta väljud";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
@@ -358,19 +336,19 @@
             // scholarshipCheckbox
             // 
             this.scholarshipCheckbox.AutoSize = true;
-            this.scholarshipCheckbox.Location = new System.Drawing.Point(145, 467);
+            this.scholarshipCheckbox.Location = new System.Drawing.Point(97, 304);
+            this.scholarshipCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scholarshipCheckbox.Name = "scholarshipCheckbox";
-            this.scholarshipCheckbox.Size = new System.Drawing.Size(84, 24);
+            this.scholarshipCheckbox.Size = new System.Drawing.Size(59, 17);
             this.scholarshipCheckbox.TabIndex = 16;
             this.scholarshipCheckbox.Text = "Toetus";
             this.scholarshipCheckbox.UseVisualStyleBackColor = true;
             // 
             // sendMessageButton
             // 
-            this.sendMessageButton.Location = new System.Drawing.Point(920, 596);
-            this.sendMessageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.sendMessageButton.Location = new System.Drawing.Point(613, 387);
             this.sendMessageButton.Name = "sendMessageButton";
-            this.sendMessageButton.Size = new System.Drawing.Size(242, 46);
+            this.sendMessageButton.Size = new System.Drawing.Size(161, 30);
             this.sendMessageButton.TabIndex = 9;
             this.sendMessageButton.Text = "Saada sõnum";
             this.sendMessageButton.UseVisualStyleBackColor = true;
@@ -378,10 +356,9 @@
             // 
             // addGroupButton
             // 
-            this.addGroupButton.Location = new System.Drawing.Point(738, 33);
-            this.addGroupButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addGroupButton.Location = new System.Drawing.Point(492, 21);
             this.addGroupButton.Name = "addGroupButton";
-            this.addGroupButton.Size = new System.Drawing.Size(279, 35);
+            this.addGroupButton.Size = new System.Drawing.Size(186, 23);
             this.addGroupButton.TabIndex = 2;
             this.addGroupButton.Text = "Lisa rühm";
             this.addGroupButton.UseVisualStyleBackColor = true;
@@ -389,29 +366,26 @@
             // 
             // newGroupCodeTextBox
             // 
-            this.newGroupCodeTextBox.Location = new System.Drawing.Point(1085, 46);
-            this.newGroupCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.newGroupCodeTextBox.Location = new System.Drawing.Point(723, 30);
             this.newGroupCodeTextBox.Name = "newGroupCodeTextBox";
-            this.newGroupCodeTextBox.Size = new System.Drawing.Size(145, 26);
+            this.newGroupCodeTextBox.Size = new System.Drawing.Size(98, 20);
             this.newGroupCodeTextBox.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1025, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(683, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Kood";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // deleteGroupButton
             // 
-            this.deleteGroupButton.Location = new System.Drawing.Point(738, 78);
-            this.deleteGroupButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteGroupButton.Location = new System.Drawing.Point(492, 51);
             this.deleteGroupButton.Name = "deleteGroupButton";
-            this.deleteGroupButton.Size = new System.Drawing.Size(279, 35);
+            this.deleteGroupButton.Size = new System.Drawing.Size(186, 23);
             this.deleteGroupButton.TabIndex = 2;
             this.deleteGroupButton.Text = "Kustuta rühm";
             this.deleteGroupButton.UseVisualStyleBackColor = true;
@@ -419,17 +393,17 @@
             // 
             // dateOfBirthPicker
             // 
-            this.dateOfBirthPicker.Location = new System.Drawing.Point(140, 426);
+            this.dateOfBirthPicker.Location = new System.Drawing.Point(93, 277);
+            this.dateOfBirthPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateOfBirthPicker.Name = "dateOfBirthPicker";
-            this.dateOfBirthPicker.Size = new System.Drawing.Size(250, 26);
+            this.dateOfBirthPicker.Size = new System.Drawing.Size(168, 20);
             this.dateOfBirthPicker.TabIndex = 17;
             // 
             // parentsButton
             // 
-            this.parentsButton.Location = new System.Drawing.Point(404, 591);
-            this.parentsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.parentsButton.Location = new System.Drawing.Point(269, 384);
             this.parentsButton.Name = "parentsButton";
-            this.parentsButton.Size = new System.Drawing.Size(252, 46);
+            this.parentsButton.Size = new System.Drawing.Size(168, 30);
             this.parentsButton.TabIndex = 9;
             this.parentsButton.Text = "Lapsevanemad";
             this.parentsButton.UseVisualStyleBackColor = true;
@@ -438,9 +412,10 @@
             // activeCheckbox
             // 
             this.activeCheckbox.AutoSize = true;
-            this.activeCheckbox.Location = new System.Drawing.Point(296, 467);
+            this.activeCheckbox.Location = new System.Drawing.Point(197, 304);
+            this.activeCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.activeCheckbox.Name = "activeCheckbox";
-            this.activeCheckbox.Size = new System.Drawing.Size(90, 24);
+            this.activeCheckbox.Size = new System.Drawing.Size(64, 17);
             this.activeCheckbox.TabIndex = 16;
             this.activeCheckbox.Text = "Aktiivne";
             this.activeCheckbox.UseVisualStyleBackColor = true;
@@ -448,39 +423,33 @@
             // showInactivesCheckbox
             // 
             this.showInactivesCheckbox.AutoSize = true;
-            this.showInactivesCheckbox.Location = new System.Drawing.Point(507, 67);
+            this.showInactivesCheckbox.Location = new System.Drawing.Point(338, 44);
+            this.showInactivesCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.showInactivesCheckbox.Name = "showInactivesCheckbox";
-            this.showInactivesCheckbox.Size = new System.Drawing.Size(172, 24);
+            this.showInactivesCheckbox.Size = new System.Drawing.Size(118, 17);
             this.showInactivesCheckbox.TabIndex = 16;
             this.showInactivesCheckbox.Text = "Näita mitteaktiivsed";
             this.showInactivesCheckbox.UseVisualStyleBackColor = true;
             this.showInactivesCheckbox.CheckedChanged += new System.EventHandler(this.showInactivesCheckbox_CheckedChanged);
             // 
-            // Scholarship
+            // contactsBindingSource
             // 
-            this.Scholarship.DataPropertyName = "Scholarship";
-            this.Scholarship.HeaderText = "Toetus";
-            this.Scholarship.MinimumWidth = 8;
-            this.Scholarship.Name = "Scholarship";
-            this.Scholarship.ReadOnly = true;
-            this.Scholarship.Visible = false;
+            this.contactsBindingSource.DataMember = "Contacts";
+            this.contactsBindingSource.DataSource = this.contactsDataSet;
             // 
-            // DateOfBirth
+            // contactsDataSet
             // 
-            this.DateOfBirth.DataPropertyName = "DateOfBirth";
-            this.DateOfBirth.HeaderText = "Sünniaeg";
-            this.DateOfBirth.MinimumWidth = 8;
-            this.DateOfBirth.Name = "DateOfBirth";
-            this.DateOfBirth.ReadOnly = true;
+            this.contactsDataSet.DataSetName = "ContactsDataSet";
+            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Active
+            // contactsDataSetBindingSource
             // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.MinimumWidth = 8;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Visible = false;
+            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
+            this.contactsDataSetBindingSource.Position = 0;
+            // 
+            // contactsTableAdapter
+            // 
+            this.contactsTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -532,31 +501,46 @@
             this.groupIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.groupIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // contactsBindingSource
+            // Scholarship
             // 
-            this.contactsBindingSource.DataMember = "Contacts";
-            this.contactsBindingSource.DataSource = this.contactsDataSet;
+            this.Scholarship.DataPropertyName = "Scholarship";
+            this.Scholarship.HeaderText = "Toetus";
+            this.Scholarship.MinimumWidth = 8;
+            this.Scholarship.Name = "Scholarship";
+            this.Scholarship.ReadOnly = true;
+            this.Scholarship.Visible = false;
             // 
-            // contactsDataSet
+            // DateOfBirth
             // 
-            this.contactsDataSet.DataSetName = "ContactsDataSet";
-            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DateOfBirth.DataPropertyName = "DateOfBirth";
+            this.DateOfBirth.HeaderText = "Sünniaeg";
+            this.DateOfBirth.MinimumWidth = 8;
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.ReadOnly = true;
             // 
-            // contactsDataSetBindingSource
+            // Active
             // 
-            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
-            this.contactsDataSetBindingSource.Position = 0;
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.MinimumWidth = 8;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Visible = false;
             // 
-            // contactsTableAdapter
+            // DataPermission
             // 
-            this.contactsTableAdapter.ClearBeforeFill = true;
+            this.DataPermission.DataPropertyName = "DataPermission";
+            this.DataPermission.HeaderText = "DataPermission";
+            this.DataPermission.Name = "DataPermission";
+            this.DataPermission.ReadOnly = true;
+            this.DataPermission.Visible = false;
             // 
             // ContactsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1334, 738);
+            this.ClientSize = new System.Drawing.Size(889, 480);
             this.Controls.Add(this.dateOfBirthPicker);
             this.Controls.Add(this.showInactivesCheckbox);
             this.Controls.Add(this.activeCheckbox);
@@ -592,7 +576,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ContactsForm";
@@ -657,6 +640,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Scholarship;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DataPermission;
     }
 }
 
