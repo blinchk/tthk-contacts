@@ -8,7 +8,7 @@ namespace tthk_contacts
 {
     public partial class ParentsForm : Form
     {
-        private readonly Student student;
+        private Student student;
         private SqlDataAdapter adapter;
         private Parent currentParent;
         private int id;
@@ -26,13 +26,19 @@ namespace tthk_contacts
             var dataService = new DataService();
             var table = new DataTable();
             adapter = dataService.GetParentsByStudent(student.Id);
-            adapter.Fill(table);
+            if (dataPermissionCheckBox.Checked)
+            {
+                adapter.Fill(table);
+            }
             parentsDataGridView.DataSource = table;
         }
 
         private void dataPermissionCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            parentsDataGridView.Enabled = !dataPermissionCheckBox.Checked;
+            DisplayData();
+            DataService dataService = new DataService();
+            student.DataPermission = dataPermissionCheckBox.Checked;
+            dataService.ChangeDataPermission(student);
         }
 
         private void SelectedParentDataFromTable(int row)

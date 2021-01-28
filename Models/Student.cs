@@ -11,5 +11,6 @@ namespace tthk_contacts.Models
         public int GroupId { get; set; }
         public bool Scholarship { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public bool DataPermission { get; set; }
     }
 }
