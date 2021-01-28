@@ -31,6 +31,13 @@ namespace tthk_contacts
         {
             this.components = new System.ComponentModel.Container();
             this.parentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.childrenIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
@@ -44,13 +51,6 @@ namespace tthk_contacts
             this.dataPermissionCheckBox = new System.Windows.Forms.CheckBox();
             this.studentNameLabel = new System.Windows.Forms.Label();
             this.sendMessageButton = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.childrenIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.parentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -70,144 +70,15 @@ namespace tthk_contacts
             this.activeDataGridViewCheckBoxColumn,
             this.childrenIdDataGridViewTextBoxColumn});
             this.parentsDataGridView.DataSource = this.parentBindingSource;
-            this.parentsDataGridView.Location = new System.Drawing.Point(23, 88);
+            this.parentsDataGridView.Location = new System.Drawing.Point(15, 57);
+            this.parentsDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.parentsDataGridView.Name = "parentsDataGridView";
             this.parentsDataGridView.ReadOnly = true;
             this.parentsDataGridView.RowHeadersWidth = 50;
             this.parentsDataGridView.RowTemplate.Height = 28;
-            this.parentsDataGridView.Size = new System.Drawing.Size(624, 386);
+            this.parentsDataGridView.Size = new System.Drawing.Size(416, 251);
             this.parentsDataGridView.TabIndex = 0;
             this.parentsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.parentsDataGridView_RowHeaderMouseClick);
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(157, 487);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(247, 26);
-            this.nameTextBox.TabIndex = 1;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(108, 490);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(39, 20);
-            this.nameLabel.TabIndex = 2;
-            this.nameLabel.Text = "Nimi";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.Location = new System.Drawing.Point(157, 529);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(247, 26);
-            this.phoneTextBox.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 532);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Telefoninumber";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(157, 575);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(247, 26);
-            this.emailTextBox.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 578);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "E-post";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // activeCheckBox
-            // 
-            this.activeCheckBox.AutoSize = true;
-            this.activeCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.activeCheckBox.Location = new System.Drawing.Point(314, 607);
-            this.activeCheckBox.Name = "activeCheckBox";
-            this.activeCheckBox.Size = new System.Drawing.Size(90, 24);
-            this.activeCheckBox.TabIndex = 3;
-            this.activeCheckBox.Text = "Aktiivne";
-            this.activeCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // addParentButton
-            // 
-            this.addParentButton.Location = new System.Drawing.Point(426, 487);
-            this.addParentButton.Name = "addParentButton";
-            this.addParentButton.Size = new System.Drawing.Size(223, 54);
-            this.addParentButton.TabIndex = 4;
-            this.addParentButton.Text = "Lisa";
-            this.addParentButton.UseVisualStyleBackColor = true;
-            this.addParentButton.Click += new System.EventHandler(this.addParentButton_Click);
-            // 
-            // changeParentButton
-            // 
-            this.changeParentButton.Location = new System.Drawing.Point(426, 547);
-            this.changeParentButton.Name = "changeParentButton";
-            this.changeParentButton.Size = new System.Drawing.Size(223, 54);
-            this.changeParentButton.TabIndex = 4;
-            this.changeParentButton.Text = "Muuda";
-            this.changeParentButton.UseVisualStyleBackColor = true;
-            this.changeParentButton.Click += new System.EventHandler(this.changeParentButton_Click);
-            // 
-            // deleteParentButton
-            // 
-            this.deleteParentButton.Location = new System.Drawing.Point(426, 607);
-            this.deleteParentButton.Name = "deleteParentButton";
-            this.deleteParentButton.Size = new System.Drawing.Size(223, 54);
-            this.deleteParentButton.TabIndex = 4;
-            this.deleteParentButton.Text = "Kustuta";
-            this.deleteParentButton.UseVisualStyleBackColor = true;
-            this.deleteParentButton.Click += new System.EventHandler(this.deleteParentButton_Click);
-            // 
-            // dataPermissionCheckBox
-            // 
-            this.dataPermissionCheckBox.AutoSize = true;
-            this.dataPermissionCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dataPermissionCheckBox.Checked = true;
-            this.dataPermissionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.dataPermissionCheckBox.Location = new System.Drawing.Point(25, 58);
-            this.dataPermissionCheckBox.Name = "dataPermissionCheckBox";
-            this.dataPermissionCheckBox.Size = new System.Drawing.Size(232, 24);
-            this.dataPermissionCheckBox.TabIndex = 3;
-            this.dataPermissionCheckBox.Text = "Andmete andmise nõusolek";
-            this.dataPermissionCheckBox.UseVisualStyleBackColor = true;
-            this.dataPermissionCheckBox.CheckedChanged += new System.EventHandler(this.dataPermissionCheckBox_CheckedChanged);
-            // 
-            // studentNameLabel
-            // 
-            this.studentNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.studentNameLabel.AutoSize = true;
-            this.studentNameLabel.Location = new System.Drawing.Point(17, 35);
-            this.studentNameLabel.Name = "studentNameLabel";
-            this.studentNameLabel.Size = new System.Drawing.Size(93, 20);
-            this.studentNameLabel.TabIndex = 2;
-            this.studentNameLabel.Text = "Õppur nimi: ";
-            this.studentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // sendMessageButton
-            // 
-            this.sendMessageButton.Location = new System.Drawing.Point(426, 666);
-            this.sendMessageButton.Name = "sendMessageButton";
-            this.sendMessageButton.Size = new System.Drawing.Size(223, 54);
-            this.sendMessageButton.TabIndex = 4;
-            this.sendMessageButton.Text = "Saada sõnum";
-            this.sendMessageButton.UseVisualStyleBackColor = true;
-            this.sendMessageButton.Click += new System.EventHandler(this.sendMessageButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -263,11 +134,154 @@ namespace tthk_contacts
             // 
             this.parentBindingSource.DataSource = typeof(tthk_contacts.Models.Parent);
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(105, 317);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(166, 20);
+            this.nameTextBox.TabIndex = 1;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(72, 318);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(27, 13);
+            this.nameLabel.TabIndex = 2;
+            this.nameLabel.Text = "Nimi";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.Location = new System.Drawing.Point(105, 344);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(166, 20);
+            this.phoneTextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 346);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Telefoninumber";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(105, 374);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(166, 20);
+            this.emailTextBox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(63, 376);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "E-post";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // activeCheckBox
+            // 
+            this.activeCheckBox.AutoSize = true;
+            this.activeCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.activeCheckBox.Location = new System.Drawing.Point(209, 395);
+            this.activeCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.activeCheckBox.Name = "activeCheckBox";
+            this.activeCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.activeCheckBox.TabIndex = 3;
+            this.activeCheckBox.Text = "Aktiivne";
+            this.activeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // addParentButton
+            // 
+            this.addParentButton.Location = new System.Drawing.Point(284, 317);
+            this.addParentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addParentButton.Name = "addParentButton";
+            this.addParentButton.Size = new System.Drawing.Size(149, 35);
+            this.addParentButton.TabIndex = 4;
+            this.addParentButton.Text = "Lisa";
+            this.addParentButton.UseVisualStyleBackColor = true;
+            this.addParentButton.Click += new System.EventHandler(this.addParentButton_Click);
+            // 
+            // changeParentButton
+            // 
+            this.changeParentButton.Location = new System.Drawing.Point(284, 356);
+            this.changeParentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeParentButton.Name = "changeParentButton";
+            this.changeParentButton.Size = new System.Drawing.Size(149, 35);
+            this.changeParentButton.TabIndex = 4;
+            this.changeParentButton.Text = "Muuda";
+            this.changeParentButton.UseVisualStyleBackColor = true;
+            this.changeParentButton.Click += new System.EventHandler(this.changeParentButton_Click);
+            // 
+            // deleteParentButton
+            // 
+            this.deleteParentButton.Location = new System.Drawing.Point(284, 395);
+            this.deleteParentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteParentButton.Name = "deleteParentButton";
+            this.deleteParentButton.Size = new System.Drawing.Size(149, 35);
+            this.deleteParentButton.TabIndex = 4;
+            this.deleteParentButton.Text = "Kustuta";
+            this.deleteParentButton.UseVisualStyleBackColor = true;
+            this.deleteParentButton.Click += new System.EventHandler(this.deleteParentButton_Click);
+            // 
+            // dataPermissionCheckBox
+            // 
+            this.dataPermissionCheckBox.AutoSize = true;
+            this.dataPermissionCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.dataPermissionCheckBox.Checked = true;
+            this.dataPermissionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dataPermissionCheckBox.Location = new System.Drawing.Point(17, 38);
+            this.dataPermissionCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataPermissionCheckBox.Name = "dataPermissionCheckBox";
+            this.dataPermissionCheckBox.Size = new System.Drawing.Size(170, 17);
+            this.dataPermissionCheckBox.TabIndex = 3;
+            this.dataPermissionCheckBox.Text = "Andmete kasutamise nõusolek";
+            this.dataPermissionCheckBox.UseVisualStyleBackColor = true;
+            this.dataPermissionCheckBox.CheckedChanged += new System.EventHandler(this.dataPermissionCheckBox_CheckedChanged);
+            // 
+            // studentNameLabel
+            // 
+            this.studentNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.studentNameLabel.AutoSize = true;
+            this.studentNameLabel.Location = new System.Drawing.Point(11, 23);
+            this.studentNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.studentNameLabel.Name = "studentNameLabel";
+            this.studentNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.studentNameLabel.TabIndex = 2;
+            this.studentNameLabel.Text = "Õppur nimi: ";
+            this.studentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // sendMessageButton
+            // 
+            this.sendMessageButton.Location = new System.Drawing.Point(284, 433);
+            this.sendMessageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sendMessageButton.Name = "sendMessageButton";
+            this.sendMessageButton.Size = new System.Drawing.Size(149, 35);
+            this.sendMessageButton.TabIndex = 4;
+            this.sendMessageButton.Text = "Saada sõnum";
+            this.sendMessageButton.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Click += new System.EventHandler(this.sendMessageButton_Click);
+            // 
             // ParentsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 748);
+            this.ClientSize = new System.Drawing.Size(453, 486);
             this.Controls.Add(this.sendMessageButton);
             this.Controls.Add(this.deleteParentButton);
             this.Controls.Add(this.changeParentButton);
@@ -282,6 +296,7 @@ namespace tthk_contacts
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.parentsDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ParentsForm";
