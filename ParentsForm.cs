@@ -44,15 +44,23 @@ namespace tthk_contacts
 
         private void SelectedParentDataFromTable(int row)
         {
-            currentParent = new Parent
+            try
             {
-                Id = Convert.ToInt32(parentsDataGridView.Rows[row].Cells[0].Value.ToString()),
-                Name = parentsDataGridView.Rows[row].Cells[1].Value.ToString(),
-                Phone = parentsDataGridView.Rows[row].Cells[2].Value.ToString(),
-                Email = parentsDataGridView.Rows[row].Cells[3].Value.ToString(),
-                Active = Convert.ToBoolean(parentsDataGridView.Rows[row].Cells[4].Value),
-                ChildrenId = Convert.ToInt32(parentsDataGridView.Rows[row].Cells[5].Value)
-            };
+                currentParent = new Parent
+                {
+                    Id = Convert.ToInt32(parentsDataGridView.Rows[row].Cells[0].Value.ToString()),
+                    Name = parentsDataGridView.Rows[row].Cells[1].Value.ToString(),
+                    Phone = parentsDataGridView.Rows[row].Cells[2].Value.ToString(),
+                    Email = parentsDataGridView.Rows[row].Cells[3].Value.ToString(),
+                    Active = Convert.ToBoolean(parentsDataGridView.Rows[row].Cells[4].Value),
+                    ChildrenId = Convert.ToInt32(parentsDataGridView.Rows[row].Cells[5].Value)
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Valitud rida on tühi!");
+            }
+            
         }
 
         private bool ValidateTextBox(TextBox textBox)

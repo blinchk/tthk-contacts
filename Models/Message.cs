@@ -13,7 +13,7 @@ namespace tthk_contacts.Models
         public List<string> Recipients { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public Attachment Attachment { get; set; }
+        public Attachment[] Attachment { get; set; }
 
         public void Send()
         {
