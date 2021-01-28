@@ -48,7 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -120,12 +122,12 @@
     <EmbeddedResource Include="SendMailForm.resx">
       <DependentUpon>SendMailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AppData\Eritoetuse avaldus.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="AppData\Koolilõunatoetuse avaldus.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="AppData\Eritoetuse avaldus.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppData\Lõunatoetuse avaldus.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="ContactsDataSet.xsc">
       <DependentUpon>ContactsDataSet.xsd</DependentUpon>
     </None>

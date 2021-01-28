@@ -39,8 +39,8 @@ namespace tthk_contacts
             this.sendMessageButton = new System.Windows.Forms.Button();
             this.wholeContactsButton = new System.Windows.Forms.Button();
             this.addScholarshipFileCheckbox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.addLunchscholarshipCheckBox = new System.Windows.Forms.CheckBox();
+            this.addFileButton = new System.Windows.Forms.Button();
+            this.addLunchScholarshipCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +56,7 @@ namespace tthk_contacts
             // recepientTextBox
             // 
             this.recepientTextBox.Location = new System.Drawing.Point(66, 36);
-            this.recepientTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.recepientTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.recepientTextBox.Name = "recepientTextBox";
             this.recepientTextBox.Size = new System.Drawing.Size(476, 20);
             this.recepientTextBox.TabIndex = 4;
@@ -74,7 +74,7 @@ namespace tthk_contacts
             // subjectTextBox
             // 
             this.subjectTextBox.Location = new System.Drawing.Point(66, 57);
-            this.subjectTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.subjectTextBox.Name = "subjectTextBox";
             this.subjectTextBox.Size = new System.Drawing.Size(476, 20);
             this.subjectTextBox.TabIndex = 5;
@@ -93,7 +93,7 @@ namespace tthk_contacts
             // contentTextBox
             // 
             this.contentTextBox.Location = new System.Drawing.Point(66, 78);
-            this.contentTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contentTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.contentTextBox.Name = "contentTextBox";
             this.contentTextBox.Size = new System.Drawing.Size(476, 191);
             this.contentTextBox.TabIndex = 6;
@@ -103,7 +103,7 @@ namespace tthk_contacts
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(66, 8);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 23);
             this.button2.TabIndex = 1;
@@ -113,7 +113,7 @@ namespace tthk_contacts
             // sendMessageButton
             // 
             this.sendMessageButton.Location = new System.Drawing.Point(384, 272);
-            this.sendMessageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sendMessageButton.Margin = new System.Windows.Forms.Padding(2);
             this.sendMessageButton.Name = "sendMessageButton";
             this.sendMessageButton.Size = new System.Drawing.Size(157, 43);
             this.sendMessageButton.TabIndex = 7;
@@ -124,7 +124,7 @@ namespace tthk_contacts
             // wholeContactsButton
             // 
             this.wholeContactsButton.Location = new System.Drawing.Point(146, 8);
-            this.wholeContactsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wholeContactsButton.Margin = new System.Windows.Forms.Padding(2);
             this.wholeContactsButton.Name = "wholeContactsButton";
             this.wholeContactsButton.Size = new System.Drawing.Size(91, 23);
             this.wholeContactsButton.TabIndex = 3;
@@ -136,43 +136,43 @@ namespace tthk_contacts
             // 
             this.addScholarshipFileCheckbox.AutoSize = true;
             this.addScholarshipFileCheckbox.Location = new System.Drawing.Point(66, 272);
-            this.addScholarshipFileCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addScholarshipFileCheckbox.Margin = new System.Windows.Forms.Padding(2);
             this.addScholarshipFileCheckbox.Name = "addScholarshipFileCheckbox";
             this.addScholarshipFileCheckbox.Size = new System.Drawing.Size(134, 17);
             this.addScholarshipFileCheckbox.TabIndex = 8;
             this.addScholarshipFileCheckbox.Text = "Lisa eritoetuse avaldus";
             this.addScholarshipFileCheckbox.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addFileButton
             // 
-            this.button1.Location = new System.Drawing.Point(293, 272);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 43);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Lisa fail";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.wholeContactsButton_Click);
+            this.addFileButton.Location = new System.Drawing.Point(293, 272);
+            this.addFileButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addFileButton.Name = "addFileButton";
+            this.addFileButton.Size = new System.Drawing.Size(87, 43);
+            this.addFileButton.TabIndex = 3;
+            this.addFileButton.Text = "Lisa fail";
+            this.addFileButton.UseVisualStyleBackColor = true;
+            this.addFileButton.Click += new System.EventHandler(this.addFileButton_Click);
             // 
-            // addLunchscholarshipCheckBox
+            // addLunchScholarshipCheckBox
             // 
-            this.addLunchscholarshipCheckBox.AutoSize = true;
-            this.addLunchscholarshipCheckBox.Location = new System.Drawing.Point(66, 293);
-            this.addLunchscholarshipCheckBox.Margin = new System.Windows.Forms.Padding(2);
-            this.addLunchscholarshipCheckBox.Name = "addLunchscholarshipCheckBox";
-            this.addLunchscholarshipCheckBox.Size = new System.Drawing.Size(171, 17);
-            this.addLunchscholarshipCheckBox.TabIndex = 8;
-            this.addLunchscholarshipCheckBox.Text = "Lisa koolilõunatoetuse avaldus";
-            this.addLunchscholarshipCheckBox.UseVisualStyleBackColor = true;
+            this.addLunchScholarshipCheckBox.AutoSize = true;
+            this.addLunchScholarshipCheckBox.Location = new System.Drawing.Point(66, 293);
+            this.addLunchScholarshipCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.addLunchScholarshipCheckBox.Name = "addLunchScholarshipCheckBox";
+            this.addLunchScholarshipCheckBox.Size = new System.Drawing.Size(171, 17);
+            this.addLunchScholarshipCheckBox.TabIndex = 8;
+            this.addLunchScholarshipCheckBox.Text = "Lisa koolilõunatoetuse avaldus";
+            this.addLunchScholarshipCheckBox.UseVisualStyleBackColor = true;
             // 
             // SendMailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 339);
-            this.Controls.Add(this.addLunchscholarshipCheckBox);
+            this.Controls.Add(this.addLunchScholarshipCheckBox);
             this.Controls.Add(this.addScholarshipFileCheckbox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addFileButton);
             this.Controls.Add(this.wholeContactsButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.sendMessageButton);
@@ -182,7 +182,7 @@ namespace tthk_contacts
             this.Controls.Add(this.label2);
             this.Controls.Add(this.recepientTextBox);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SendMailForm";
             this.Text = "Saatmisvorm";
             this.ResumeLayout(false);
@@ -202,7 +202,7 @@ namespace tthk_contacts
         private System.Windows.Forms.Button sendMessageButton;
         private System.Windows.Forms.Button wholeContactsButton;
         private System.Windows.Forms.CheckBox addScholarshipFileCheckbox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox addLunchscholarshipCheckBox;
+        private System.Windows.Forms.Button addFileButton;
+        private System.Windows.Forms.CheckBox addLunchScholarshipCheckBox;
     }
 }

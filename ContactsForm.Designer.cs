@@ -47,6 +47,18 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.contactsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DataPermission = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
             this.pictureLinkLabel = new System.Windows.Forms.Label();
             this.pictureTextBox = new System.Windows.Forms.TextBox();
             this.addPictureLinkButton = new System.Windows.Forms.Button();
@@ -63,20 +75,8 @@
             this.parentsButton = new System.Windows.Forms.Button();
             this.activeCheckbox = new System.Windows.Forms.CheckBox();
             this.showInactivesCheckbox = new System.Windows.Forms.CheckBox();
-            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsDataSet = new tthk_contacts.ContactsDataSet();
             this.contactsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contactsTableAdapter = new tthk_contacts.ContactsDataSetTableAdapters.ContactsTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Scholarship = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DataPermission = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
@@ -275,182 +275,6 @@
             this.contactsDataGridView.TabIndex = 15;
             this.contactsDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ContactsDataGridView_RowHeaderMouseClick);
             // 
-            // pictureLinkLabel
-            // 
-            this.pictureLinkLabel.AutoSize = true;
-            this.pictureLinkLabel.Location = new System.Drawing.Point(45, 326);
-            this.pictureLinkLabel.Name = "pictureLinkLabel";
-            this.pictureLinkLabel.Size = new System.Drawing.Size(45, 13);
-            this.pictureLinkLabel.TabIndex = 0;
-            this.pictureLinkLabel.Text = "Pildi link";
-            this.pictureLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureTextBox
-            // 
-            this.pictureTextBox.Location = new System.Drawing.Point(93, 324);
-            this.pictureTextBox.Name = "pictureTextBox";
-            this.pictureTextBox.Size = new System.Drawing.Size(168, 20);
-            this.pictureTextBox.TabIndex = 7;
-            // 
-            // addPictureLinkButton
-            // 
-            this.addPictureLinkButton.Location = new System.Drawing.Point(93, 348);
-            this.addPictureLinkButton.Name = "addPictureLinkButton";
-            this.addPictureLinkButton.Size = new System.Drawing.Size(169, 30);
-            this.addPictureLinkButton.TabIndex = 8;
-            this.addPictureLinkButton.Text = "Lisa pilt";
-            this.addPictureLinkButton.UseVisualStyleBackColor = true;
-            this.addPictureLinkButton.Click += new System.EventHandler(this.AddPictureLinkButton_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(52, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Rühm";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // contactGroupComboBox
-            // 
-            this.contactGroupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.contactGroupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.contactGroupComboBox.FormattingEnabled = true;
-            this.contactGroupComboBox.Location = new System.Drawing.Point(93, 153);
-            this.contactGroupComboBox.Name = "contactGroupComboBox";
-            this.contactGroupComboBox.Size = new System.Drawing.Size(168, 21);
-            this.contactGroupComboBox.TabIndex = 6;
-            this.contactGroupComboBox.Text = "Pole";
-            // 
-            // clearFieldsButton
-            // 
-            this.clearFieldsButton.Location = new System.Drawing.Point(93, 384);
-            this.clearFieldsButton.Name = "clearFieldsButton";
-            this.clearFieldsButton.Size = new System.Drawing.Size(169, 30);
-            this.clearFieldsButton.TabIndex = 9;
-            this.clearFieldsButton.Text = "Kustuta väljud";
-            this.clearFieldsButton.UseVisualStyleBackColor = true;
-            this.clearFieldsButton.Click += new System.EventHandler(this.ClearFieldsButton_Click);
-            // 
-            // scholarshipCheckbox
-            // 
-            this.scholarshipCheckbox.AutoSize = true;
-            this.scholarshipCheckbox.Location = new System.Drawing.Point(97, 304);
-            this.scholarshipCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.scholarshipCheckbox.Name = "scholarshipCheckbox";
-            this.scholarshipCheckbox.Size = new System.Drawing.Size(59, 17);
-            this.scholarshipCheckbox.TabIndex = 16;
-            this.scholarshipCheckbox.Text = "Toetus";
-            this.scholarshipCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // sendMessageButton
-            // 
-            this.sendMessageButton.Location = new System.Drawing.Point(613, 387);
-            this.sendMessageButton.Name = "sendMessageButton";
-            this.sendMessageButton.Size = new System.Drawing.Size(161, 30);
-            this.sendMessageButton.TabIndex = 9;
-            this.sendMessageButton.Text = "Saada sõnum";
-            this.sendMessageButton.UseVisualStyleBackColor = true;
-            this.sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
-            // 
-            // addGroupButton
-            // 
-            this.addGroupButton.Location = new System.Drawing.Point(492, 21);
-            this.addGroupButton.Name = "addGroupButton";
-            this.addGroupButton.Size = new System.Drawing.Size(186, 23);
-            this.addGroupButton.TabIndex = 2;
-            this.addGroupButton.Text = "Lisa rühm";
-            this.addGroupButton.UseVisualStyleBackColor = true;
-            this.addGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
-            // 
-            // newGroupCodeTextBox
-            // 
-            this.newGroupCodeTextBox.Location = new System.Drawing.Point(723, 30);
-            this.newGroupCodeTextBox.Name = "newGroupCodeTextBox";
-            this.newGroupCodeTextBox.Size = new System.Drawing.Size(98, 20);
-            this.newGroupCodeTextBox.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(683, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Kood";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // deleteGroupButton
-            // 
-            this.deleteGroupButton.Location = new System.Drawing.Point(492, 51);
-            this.deleteGroupButton.Name = "deleteGroupButton";
-            this.deleteGroupButton.Size = new System.Drawing.Size(186, 23);
-            this.deleteGroupButton.TabIndex = 2;
-            this.deleteGroupButton.Text = "Kustuta rühm";
-            this.deleteGroupButton.UseVisualStyleBackColor = true;
-            this.deleteGroupButton.Click += new System.EventHandler(this.DeleteGroupButton_Click);
-            // 
-            // dateOfBirthPicker
-            // 
-            this.dateOfBirthPicker.Location = new System.Drawing.Point(93, 277);
-            this.dateOfBirthPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateOfBirthPicker.Name = "dateOfBirthPicker";
-            this.dateOfBirthPicker.Size = new System.Drawing.Size(168, 20);
-            this.dateOfBirthPicker.TabIndex = 17;
-            // 
-            // parentsButton
-            // 
-            this.parentsButton.Location = new System.Drawing.Point(269, 384);
-            this.parentsButton.Name = "parentsButton";
-            this.parentsButton.Size = new System.Drawing.Size(168, 30);
-            this.parentsButton.TabIndex = 9;
-            this.parentsButton.Text = "Lapsevanemad";
-            this.parentsButton.UseVisualStyleBackColor = true;
-            this.parentsButton.Click += new System.EventHandler(this.parentsButton_Click);
-            // 
-            // activeCheckbox
-            // 
-            this.activeCheckbox.AutoSize = true;
-            this.activeCheckbox.Location = new System.Drawing.Point(197, 304);
-            this.activeCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.activeCheckbox.Name = "activeCheckbox";
-            this.activeCheckbox.Size = new System.Drawing.Size(64, 17);
-            this.activeCheckbox.TabIndex = 16;
-            this.activeCheckbox.Text = "Aktiivne";
-            this.activeCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // showInactivesCheckbox
-            // 
-            this.showInactivesCheckbox.AutoSize = true;
-            this.showInactivesCheckbox.Location = new System.Drawing.Point(338, 44);
-            this.showInactivesCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.showInactivesCheckbox.Name = "showInactivesCheckbox";
-            this.showInactivesCheckbox.Size = new System.Drawing.Size(118, 17);
-            this.showInactivesCheckbox.TabIndex = 16;
-            this.showInactivesCheckbox.Text = "Näita mitteaktiivsed";
-            this.showInactivesCheckbox.UseVisualStyleBackColor = true;
-            this.showInactivesCheckbox.CheckedChanged += new System.EventHandler(this.showInactivesCheckbox_CheckedChanged);
-            // 
-            // contactsBindingSource
-            // 
-            this.contactsBindingSource.DataMember = "Contacts";
-            this.contactsBindingSource.DataSource = this.contactsDataSet;
-            // 
-            // contactsDataSet
-            // 
-            this.contactsDataSet.DataSetName = "ContactsDataSet";
-            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contactsDataSetBindingSource
-            // 
-            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
-            this.contactsDataSetBindingSource.Position = 0;
-            // 
-            // contactsTableAdapter
-            // 
-            this.contactsTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -534,6 +358,182 @@
             this.DataPermission.Name = "DataPermission";
             this.DataPermission.ReadOnly = true;
             this.DataPermission.Visible = false;
+            // 
+            // contactsBindingSource
+            // 
+            this.contactsBindingSource.DataMember = "Contacts";
+            this.contactsBindingSource.DataSource = this.contactsDataSet;
+            // 
+            // contactsDataSet
+            // 
+            this.contactsDataSet.DataSetName = "ContactsDataSet";
+            this.contactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pictureLinkLabel
+            // 
+            this.pictureLinkLabel.AutoSize = true;
+            this.pictureLinkLabel.Location = new System.Drawing.Point(45, 326);
+            this.pictureLinkLabel.Name = "pictureLinkLabel";
+            this.pictureLinkLabel.Size = new System.Drawing.Size(45, 13);
+            this.pictureLinkLabel.TabIndex = 0;
+            this.pictureLinkLabel.Text = "Pildi link";
+            this.pictureLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureTextBox
+            // 
+            this.pictureTextBox.Location = new System.Drawing.Point(93, 324);
+            this.pictureTextBox.Name = "pictureTextBox";
+            this.pictureTextBox.Size = new System.Drawing.Size(168, 20);
+            this.pictureTextBox.TabIndex = 7;
+            // 
+            // addPictureLinkButton
+            // 
+            this.addPictureLinkButton.Location = new System.Drawing.Point(93, 348);
+            this.addPictureLinkButton.Name = "addPictureLinkButton";
+            this.addPictureLinkButton.Size = new System.Drawing.Size(169, 30);
+            this.addPictureLinkButton.TabIndex = 8;
+            this.addPictureLinkButton.Text = "Lisa pilt";
+            this.addPictureLinkButton.UseVisualStyleBackColor = true;
+            this.addPictureLinkButton.Click += new System.EventHandler(this.AddPictureLinkButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(52, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Rühm";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // contactGroupComboBox
+            // 
+            this.contactGroupComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.contactGroupComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.contactGroupComboBox.FormattingEnabled = true;
+            this.contactGroupComboBox.Location = new System.Drawing.Point(93, 153);
+            this.contactGroupComboBox.Name = "contactGroupComboBox";
+            this.contactGroupComboBox.Size = new System.Drawing.Size(168, 21);
+            this.contactGroupComboBox.TabIndex = 6;
+            this.contactGroupComboBox.Text = "Pole";
+            // 
+            // clearFieldsButton
+            // 
+            this.clearFieldsButton.Location = new System.Drawing.Point(93, 384);
+            this.clearFieldsButton.Name = "clearFieldsButton";
+            this.clearFieldsButton.Size = new System.Drawing.Size(169, 30);
+            this.clearFieldsButton.TabIndex = 9;
+            this.clearFieldsButton.Text = "Kustuta väljud";
+            this.clearFieldsButton.UseVisualStyleBackColor = true;
+            this.clearFieldsButton.Click += new System.EventHandler(this.ClearFieldsButton_Click);
+            // 
+            // scholarshipCheckbox
+            // 
+            this.scholarshipCheckbox.AutoSize = true;
+            this.scholarshipCheckbox.Location = new System.Drawing.Point(97, 304);
+            this.scholarshipCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.scholarshipCheckbox.Name = "scholarshipCheckbox";
+            this.scholarshipCheckbox.Size = new System.Drawing.Size(59, 17);
+            this.scholarshipCheckbox.TabIndex = 16;
+            this.scholarshipCheckbox.Text = "Toetus";
+            this.scholarshipCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // sendMessageButton
+            // 
+            this.sendMessageButton.Location = new System.Drawing.Point(613, 387);
+            this.sendMessageButton.Name = "sendMessageButton";
+            this.sendMessageButton.Size = new System.Drawing.Size(161, 30);
+            this.sendMessageButton.TabIndex = 9;
+            this.sendMessageButton.Text = "Saada sõnum";
+            this.sendMessageButton.UseVisualStyleBackColor = true;
+            this.sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
+            // 
+            // addGroupButton
+            // 
+            this.addGroupButton.Location = new System.Drawing.Point(492, 21);
+            this.addGroupButton.Name = "addGroupButton";
+            this.addGroupButton.Size = new System.Drawing.Size(186, 23);
+            this.addGroupButton.TabIndex = 2;
+            this.addGroupButton.Text = "Lisa rühm";
+            this.addGroupButton.UseVisualStyleBackColor = true;
+            this.addGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
+            // 
+            // newGroupCodeTextBox
+            // 
+            this.newGroupCodeTextBox.Location = new System.Drawing.Point(723, 30);
+            this.newGroupCodeTextBox.Name = "newGroupCodeTextBox";
+            this.newGroupCodeTextBox.Size = new System.Drawing.Size(138, 20);
+            this.newGroupCodeTextBox.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(683, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Kood";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // deleteGroupButton
+            // 
+            this.deleteGroupButton.Location = new System.Drawing.Point(492, 51);
+            this.deleteGroupButton.Name = "deleteGroupButton";
+            this.deleteGroupButton.Size = new System.Drawing.Size(186, 23);
+            this.deleteGroupButton.TabIndex = 2;
+            this.deleteGroupButton.Text = "Kustuta rühm";
+            this.deleteGroupButton.UseVisualStyleBackColor = true;
+            this.deleteGroupButton.Click += new System.EventHandler(this.DeleteGroupButton_Click);
+            // 
+            // dateOfBirthPicker
+            // 
+            this.dateOfBirthPicker.Location = new System.Drawing.Point(93, 277);
+            this.dateOfBirthPicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dateOfBirthPicker.Name = "dateOfBirthPicker";
+            this.dateOfBirthPicker.Size = new System.Drawing.Size(168, 20);
+            this.dateOfBirthPicker.TabIndex = 17;
+            // 
+            // parentsButton
+            // 
+            this.parentsButton.Location = new System.Drawing.Point(269, 384);
+            this.parentsButton.Name = "parentsButton";
+            this.parentsButton.Size = new System.Drawing.Size(168, 30);
+            this.parentsButton.TabIndex = 9;
+            this.parentsButton.Text = "Lapsevanemad";
+            this.parentsButton.UseVisualStyleBackColor = true;
+            this.parentsButton.Click += new System.EventHandler(this.parentsButton_Click);
+            // 
+            // activeCheckbox
+            // 
+            this.activeCheckbox.AutoSize = true;
+            this.activeCheckbox.Location = new System.Drawing.Point(197, 304);
+            this.activeCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.activeCheckbox.Name = "activeCheckbox";
+            this.activeCheckbox.Size = new System.Drawing.Size(64, 17);
+            this.activeCheckbox.TabIndex = 16;
+            this.activeCheckbox.Text = "Aktiivne";
+            this.activeCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // showInactivesCheckbox
+            // 
+            this.showInactivesCheckbox.AutoSize = true;
+            this.showInactivesCheckbox.Location = new System.Drawing.Point(338, 44);
+            this.showInactivesCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.showInactivesCheckbox.Name = "showInactivesCheckbox";
+            this.showInactivesCheckbox.Size = new System.Drawing.Size(118, 17);
+            this.showInactivesCheckbox.TabIndex = 16;
+            this.showInactivesCheckbox.Text = "Näita mitteaktiivsed";
+            this.showInactivesCheckbox.UseVisualStyleBackColor = true;
+            this.showInactivesCheckbox.CheckedChanged += new System.EventHandler(this.showInactivesCheckbox_CheckedChanged);
+            // 
+            // contactsDataSetBindingSource
+            // 
+            this.contactsDataSetBindingSource.DataSource = this.contactsDataSet;
+            this.contactsDataSetBindingSource.Position = 0;
+            // 
+            // contactsTableAdapter
+            // 
+            this.contactsTableAdapter.ClearBeforeFill = true;
             // 
             // ContactsForm
             // 

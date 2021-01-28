@@ -9,6 +9,7 @@ namespace tthk_contacts
 {
     public partial class SendMailForm : Form
     {
+        string addedFile;
         public SendMailForm(string recepientEmail)
         {
             InitializeComponent();
@@ -43,15 +44,24 @@ namespace tthk_contacts
                 Body = contentTextBox.Text
             };
             if (addScholarshipFileCheckbox.Checked)
-                message.Attachment[0] = new Attachment(@"AppData\Eritoetuse avaldus.pdf");
-            else
-                message.Attachment[1] = null;
-            if (addLunchscholarshipCheckBox.Checked)
-                message.Attachment[1] = new Attachment(@"AppData\Koolilõunatoetuse avaldus.pdf");
-            else
-                message.Attachment[1] = null;
+                message.Attachments[0] = new Attachment(@"AppData\Eritoetuse avaldus.pdf");
+            if (addLunchScholarshipCheckBox.Checked)
+                message.Attachments[1] = new Attachment(@"AppData\Lõunatoetuse avaldus.pdf");
+            if (!String.IsNullOrEmpty(addedFile))
+                message.Attachments[2] = new Attachment(addedFile);
             message.Send();
             Close();
+        }
+
+        private void addFileButton_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var filePath = openFileDialog.FileName;
+                addedFile = filePath;
+            }
         }
     }
 }

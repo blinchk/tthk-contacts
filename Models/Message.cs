@@ -13,7 +13,7 @@ namespace tthk_contacts.Models
         public List<string> Recipients { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public Attachment[] Attachment { get; set; }
+        public Attachment[] Attachments { get; set; }
 
         public void Send()
         {
@@ -29,7 +29,13 @@ namespace tthk_contacts.Models
                 foreach (var recipent in Recipients) mailMessage.To.Add(recipent);
                 mailMessage.Subject = Subject;
                 mailMessage.Body = Body;
-                if (Attachment != null) mailMessage.Attachments.Add(Attachment);
+                if (Attachments != null)
+                {
+                    foreach (var attachment in Attachments)
+                    {
+                        mailMessage.Attachments.Add(attachment);
+                    }
+                }
                 smtpClient.Send(mailMessage);
             }
             catch (Exception e)

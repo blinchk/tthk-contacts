@@ -226,11 +226,11 @@ namespace tthk_contacts
         ///     Deletes group with a suitable code.
         /// </summary>
         /// <param name="code">Group to delete code</param>
-        internal void DeleteGroup(string code)
+        internal void DeleteGroup(int id)
         {
             connection.Open();
-            var command = new SqlCommand("DELETE FROM Groups WHERE Code = @code;", connection);
-            command.Parameters.AddWithValue("@code", code);
+            var command = new SqlCommand("DELETE FROM Groups WHERE Id = @id;", connection);
+            command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
             connection.Close();
         }
@@ -238,12 +238,12 @@ namespace tthk_contacts
         /// <summary>
         ///     Clear's group field in whole records with a suitable code in GroupId field.
         /// </summary>
-        /// <param name="code">Group to clear code</param>
-        internal void ClearStudentsGroup(string code)
+        /// <param name="id">Group to clear ID</param>
+        internal void ClearStudentsGroup(int id)
         {
             connection.Open();
-            var command = new SqlCommand("UPDATE Contacts SET GroupId = NULL WHERE Group.Code = @code", connection);
-            command.Parameters.AddWithValue("@code", code);
+            var command = new SqlCommand("UPDATE Contacts SET GroupId = NULL WHERE GroupId = @id", connection);
+            command.Parameters.AddWithValue("@id", id);
             command.ExecuteNonQuery();
             connection.Close();
         }

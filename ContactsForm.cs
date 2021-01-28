@@ -320,8 +320,9 @@ namespace tthk_contacts
             if (groupComboBox.SelectedIndex > 0)
             {
                 var dataService = new DataService();
-                dataService.ClearStudentsGroup(groupComboBox.SelectedText);
-                dataService.DeleteGroup(groupComboBox.SelectedText);
+                dataService.ClearStudentsGroup(groupComboBox.SelectedIndex);
+                dataService.DeleteGroup(groupComboBox.SelectedIndex);
+                groupComboBox.SelectedIndex = 0;
                 RequestGroups();
             }
         }
