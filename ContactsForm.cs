@@ -62,9 +62,21 @@ namespace tthk_contacts
         private void DisplayContactPicture(string picture)
         {
             if (picture.StartsWith("http"))
+            {
                 contactPictureBox.Load(picture);
+            }
             else
-                contactPictureBox.Image = new Bitmap(picture);
+            {
+                try
+                {
+                    contactPictureBox.Image = new Bitmap(picture);
+                }
+                catch (Exception)
+                {
+                    contactPictureBox.Image = null;
+                }
+            }
+                
         }
 
         private void ClearData()
